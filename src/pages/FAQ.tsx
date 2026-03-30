@@ -23,12 +23,8 @@ const FAQ: React.FC = () => {
       icon: <Shield className="w-5 h-5" />,
       items: [
         {
-          question: "What is Dhaal Security Services (DSS Group)?",
-          answer: "Dhaal Security Services is a leading security agency in India, providing comprehensive manpower solutions including security guards, armed personnel, and facility management services with a focus on discipline and tactical excellence."
-        },
-        {
-          question: "Where are your branch offices located?",
-          answer: "Our head office is in Patna, Bihar. We have strategic branch offices in Bhagalpur (Bihar) and Jamshedpur (Jharkhand) to serve the regional security needs effectively."
+          question: "Where is your head office located?",
+          answer: "Our head office is located at Near Surya Mandir, 1st Floor, Phulwari Khagaul Road, Anisabad, Patna, Bihar – 800002. We serve the regional security needs effectively across Bihar."
         },
         {
           question: "Is Dhaal Security a licensed agency?",

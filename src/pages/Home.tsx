@@ -5,9 +5,10 @@ import { servicesData } from '../data/services';
 
 interface HomeProps {
   onServiceClick?: (serviceId: string) => void;
+  onContactClick?: () => void;
 }
 
-const Home: React.FC<HomeProps> = ({ onServiceClick }) => {
+const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -24,9 +25,12 @@ const Home: React.FC<HomeProps> = ({ onServiceClick }) => {
               Our Journey of Vigilance
             </h1>
             <p className="text-white/90 text-lg md:text-xl font-body leading-relaxed max-w-xl">
-              Founded on the principles of absolute integrity and tactical precision, Dhaal Security has evolved into India's premier manpower solution.
+              Founded on the principles of absolute integrity and tactical precision, DSS has evolved into India's premier manpower solution.
             </p>
-            <button className="bg-secondary-container text-on-secondary-fixed px-8 py-4 rounded-lg font-bold text-lg hover:opacity-80 transition-all duration-300 active:scale-95 shadow-xl">
+            <button 
+              onClick={onContactClick}
+              className="bg-secondary-container text-on-secondary-fixed px-8 py-4 rounded-lg font-bold text-lg hover:opacity-80 transition-all duration-300 active:scale-95 shadow-xl"
+            >
               Request Assessment
             </button>
           </motion.div>
@@ -104,10 +108,9 @@ const Home: React.FC<HomeProps> = ({ onServiceClick }) => {
                 <img src="/dss-logo.png" alt="DSS Logo" className="w-16 h-16 object-contain" />
                 <div className="inline-block px-4 py-1.5 bg-primary-container text-on-primary text-xs font-bold uppercase tracking-widest rounded">Welcome to DSS Group</div>
               </div>
-              <h2 className="text-primary font-headline text-4xl font-extrabold leading-tight">Providing Security That Makes Your Life Easier</h2>
               <div className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
-                <p>DSS Group is a leading security agency in Bihar & Jharkhand, providing verified and reliable security services with superior safety, risk management, and manpower solutions.</p>
-                <p>Dhaal Security Services Pvt. Ltd. was established to deliver complete manpower and security solutions. We operate across India with branches in Patna, Bhagalpur, and Jamshedpur.</p>
+                <p>DSS Group is a leading security agency in Bihar, providing verified and reliable security services with superior safety, risk management, and manpower solutions.</p>
+                <p>Dhaal Security Services Pvt. Ltd. was established to deliver a complete manpower solution. Our headquarters is located near Surya Mandir, Anisabad, Patna.</p>
               </div>
               
               <div className="grid grid-cols-2 gap-6 pt-4">
@@ -265,7 +268,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick }) => {
             <div className="space-y-8">
               <span className="text-secondary-container text-6xl opacity-30 font-serif">"</span>
               <blockquote className="text-primary font-headline text-3xl md:text-4xl font-bold leading-tight -mt-4">
-                At Dhaal, we don't just provide guards; we architect safety. Our commitment is to the peace of mind of every client we serve.
+                At DSS, we don't just provide guards; we architect safety. Our commitment is to the peace of mind of every client we serve.
               </blockquote>
               <div>
                 <div className="font-headline font-extrabold text-xl text-primary">Vikram Singh Rathore</div>

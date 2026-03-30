@@ -33,9 +33,9 @@ const App: React.FC = () => {
 
     switch (currentPage) {
       case 'home':
-        return <Home onServiceClick={handleServiceClick} />;
+        return <Home onServiceClick={handleServiceClick} onContactClick={() => setCurrentPage('contact')} />;
       case 'services':
-        return <Services onServiceClick={handleServiceClick} />;
+        return <Services onServiceClick={handleServiceClick} onGetQuote={() => setCurrentPage('contact')} />;
       case 'gallery':
         return <Gallery />;
       case 'contact':
@@ -55,7 +55,7 @@ const App: React.FC = () => {
         {renderPage()}
       </main>
 
-      <Footer />
+      <Footer setCurrentPage={setCurrentPage} />
     </div>
   );
 };

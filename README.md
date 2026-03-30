@@ -1,6 +1,6 @@
-# Dhaal Security Services Website
+# DSS Website
 
-A professional, tactical, and modern multi-page React application for Dhaal Security Services.
+A professional, tactical, and modern multi-page React application for DSS.
 
 ## Features
 
@@ -71,4 +71,4 @@ A professional, tactical, and modern multi-page React application for Dhaal Secu
 
 ## License
 
-© 2024 Dhaal Security Services. All rights reserved.
+© 2024 DSS. All rights reserved.

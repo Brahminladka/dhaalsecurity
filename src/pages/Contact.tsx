@@ -14,28 +14,45 @@ const Contact: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
-  const validate = () => {
-    const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) {
-      newErrors.name = 'Full name is required';
-    } else if (formData.name.trim().length < 3) {
-      newErrors.name = 'Name must be at least 3 characters';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email address is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
+  const validateField = (name: string, value: string) => {
+    let error = '';
+    if (name === 'name') {
+      if (!value.trim()) {
+        error = 'Full name is required';
+      } else if (value.trim().length < 3) {
+        error = 'Name must be at least 3 characters';
+      }
+    } else if (name === 'email') {
+      if (!value.trim()) {
+        error = 'Email address is required';
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        error = 'Invalid email format';
+      }
+    } else if (name === 'message') {
+      if (!value.trim()) {
+        error = 'Message is required';
+      } else if (value.trim().length < 10) {
+        error = 'Message must be at least 10 characters';
+      }
     }
     
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(prev => {
+      const newErrors = { ...prev };
+      if (error) {
+        newErrors[name] = error;
+      } else {
+        delete newErrors[name];
+      }
+      return newErrors;
+    });
+    return !error;
+  };
+
+  const validate = () => {
+    const isNameValid = validateField('name', formData.name);
+    const isEmailValid = validateField('email', formData.email);
+    const isMessageValid = validateField('message', formData.message);
+    return isNameValid && isEmailValid && isMessageValid;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -53,6 +70,7 @@ const Contact: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 1500));
       setStatus('success');
       setFormData({ name: '', email: '', service: 'Corporate Security', message: '' });
+      setErrors({});
       setTimeout(() => setStatus('idle'), 5000);
     } catch (error) {
       setStatus('error');
@@ -63,14 +81,7 @@ const Contact: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[name];
-        return newErrors;
-      });
-    }
+    validateField(name, value);
   };
 
   const shakeVariants = {
@@ -126,8 +137,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-headline font-bold text-primary text-lg">Emergency Hotline</h4>
-                    <p className="text-on-surface-variant font-medium">+91 1800 555 9999</p>
-                    <p className="text-on-surface-variant/70 text-sm">24/7 Tactical Support</p>
+                    <p className="text-on-surface-variant font-medium">9450783665</p>
+                    <p className="text-on-surface-variant/70 text-sm">24/7 Support Line</p>
                   </div>
                 </div>
 
@@ -137,8 +148,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-headline font-bold text-primary text-lg">Operational Inquiries</h4>
-                    <p className="text-on-surface-variant font-medium">ops@dhaalsecurity.com</p>
-                    <p className="text-on-surface-variant/70 text-sm">Response within 2 hours</p>
+                    <p className="text-on-surface-variant font-medium">dssplpatna@gmail.com</p>
+                    <p className="text-on-surface-variant/70 text-sm">Response within 24 hours</p>
                   </div>
                 </div>
 
@@ -148,19 +159,10 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-headline font-bold text-primary text-lg">Corporate HQ</h4>
-                      <p className="text-on-surface-variant font-medium">Dhaal Tower, Sector 62, Noida</p>
-                      <p className="text-on-surface-variant/70 text-sm">Uttar Pradesh, India - 201309</p>
-                    </div>
-                    <div>
-                      <h4 className="font-headline font-bold text-primary text-lg">Bhagalpur Branch</h4>
-                      <p className="text-on-surface-variant font-medium">Ward No. 6, Prem Nagar, Sabour</p>
-                      <p className="text-on-surface-variant/70 text-sm">Bihar - 813210 | 📞 8252514111</p>
-                    </div>
-                    <div>
-                      <h4 className="font-headline font-bold text-primary text-lg">Jamshedpur Branch</h4>
-                      <p className="text-on-surface-variant font-medium">Road No. 4, Adityapur-2</p>
-                      <p className="text-on-surface-variant/70 text-sm">Saraikela-Kharsawan, Jharkhand - 831013</p>
+                      <h4 className="font-headline font-bold text-primary text-lg">Corporate Office</h4>
+                      <p className="text-on-surface-variant font-medium">Near Surya Mandir, 1st Floor,</p>
+                      <p className="text-on-surface-variant font-medium">Phulwari Khagaul Road, Anisabad,</p>
+                      <p className="text-on-surface-variant/70 text-sm">Patna, Bihar – 800002</p>
                     </div>
                   </div>
                 </div>

@@ -14,6 +14,16 @@ export interface ServiceData {
     outcome: string;
   };
   features: string[];
+  testimonials: {
+    name: string;
+    role: string;
+    company: string;
+    quote: string;
+  }[];
+  serviceFaqs: {
+    question: string;
+    answer: string;
+  }[];
 }
 
 export const servicesData: ServiceData[] = [
@@ -35,6 +45,30 @@ export const servicesData: ServiceData[] = [
       "Emergency Response Training",
       "Professional Uniform & Conduct",
       "Daily Incident Reporting"
+    ],
+    testimonials: [
+      {
+        name: "Rajesh Kumar",
+        role: "Operations Manager",
+        company: "Suzuki Motors",
+        quote: "The discipline and professionalism of Dhaal's guards are unmatched. They've transformed our factory security protocols completely."
+      },
+      {
+        name: "Amit Verma",
+        role: "Facility Director",
+        company: "GM Modular Pvt. Ltd.",
+        quote: "Reliable and efficient. Their security personnel are well-trained and highly disciplined."
+      }
+    ],
+    serviceFaqs: [
+      {
+        question: "What kind of training do your guards receive?",
+        answer: "Our guards undergo a comprehensive 2-week induction program covering surveillance, fire safety, first aid, and professional conduct, followed by regular on-site refreshers."
+      },
+      {
+        question: "Are your guards background-verified?",
+        answer: "Yes, 100% of our personnel undergo strict police verification and background checks before deployment."
+      }
     ]
   },
   {
@@ -55,6 +89,24 @@ export const servicesData: ServiceData[] = [
       "High-Value Asset Protection",
       "Rapid Threat Mitigation",
       "Strict Firearm Safety Protocols"
+    ],
+    testimonials: [
+      {
+        name: "Sanjay Mehta",
+        role: "Security Head",
+        company: "TVS Logistics",
+        quote: "Their rapid response team is truly elite. We had a perimeter breach attempt that was neutralized within minutes thanks to their vigilance."
+      }
+    ],
+    serviceFaqs: [
+      {
+        question: "Are your gunmen ex-servicemen?",
+        answer: "A significant portion of our armed guard force consists of ex-servicemen from the Indian Army and paramilitary forces, ensuring high tactical proficiency."
+      },
+      {
+        question: "Do you handle firearm licensing?",
+        answer: "We ensure all our armed personnel possess valid, up-to-date individual firearm licenses as per state regulations."
+      }
     ]
   },
   {
@@ -75,6 +127,20 @@ export const servicesData: ServiceData[] = [
       "Corporate & Retail Specialization",
       "Self-Defense & Crisis Training",
       "Empathetic Yet Vigilant Approach"
+    ],
+    testimonials: [
+      {
+        name: "Dr. Anjali Sharma",
+        role: "Principal",
+        company: "New Era High School Patna",
+        quote: "Meticulous attention to detail. Dhaal provides a seamless manpower solution for our entire campus, ensuring our female students feel safe."
+      }
+    ],
+    serviceFaqs: [
+      {
+        question: "In what settings are lady guards most effective?",
+        answer: "They are ideal for retail malls, educational institutions, corporate front desks, and any event requiring female frisking or gender-sensitive surveillance."
+      }
     ]
   },
   {
@@ -95,6 +161,20 @@ export const servicesData: ServiceData[] = [
       "De-escalation Expertise",
       "Perimeter Management",
       "Physical Intervention Training"
+    ],
+    testimonials: [
+      {
+        name: "Vikash Gupta",
+        role: "Regional Security Lead",
+        company: "Mankind Pharma",
+        quote: "Exceptional service quality. The bouncers provided for our annual meet were well-trained and highly disciplined."
+      }
+    ],
+    serviceFaqs: [
+      {
+        question: "Do you provide bouncers for private parties?",
+        answer: "Yes, we provide bouncers for private events, corporate functions, and commercial venues, ensuring professional crowd management."
+      }
     ]
   },
   {
@@ -115,6 +195,20 @@ export const servicesData: ServiceData[] = [
       "Technical Maintenance Oversight",
       "Administrative Support",
       "Cost Optimization Strategies"
+    ],
+    testimonials: [
+      {
+        name: "Rahul Singh",
+        role: "Store Manager",
+        company: "Royal Enfield",
+        quote: "Dhaal Security has been our trusted partner for years. Their commitment to facility management is unparalleled."
+      }
+    ],
+    serviceFaqs: [
+      {
+        question: "What services are included in facility management?",
+        answer: "Our services include technical maintenance, housekeeping, vendor management, utility optimization, and administrative support for commercial properties."
+      }
     ]
   },
   {
@@ -135,7 +229,9 @@ export const servicesData: ServiceData[] = [
       "Access Control & Visitor Logs",
       "Fire Safety & Emergency Drills",
       "Loss Prevention Strategies"
-    ]
+    ],
+    testimonials: [],
+    serviceFaqs: []
   },
   {
     id: "hotel-security",
@@ -155,7 +251,9 @@ export const servicesData: ServiceData[] = [
       "CCTV Monitoring & Surveillance",
       "Emergency Evacuation Planning",
       "Professional & Discreet Presence"
-    ]
+    ],
+    testimonials: [],
+    serviceFaqs: []
   },
   {
     id: "retail-commercial",
@@ -175,7 +273,9 @@ export const servicesData: ServiceData[] = [
       "Vendor & Visitor Monitoring",
       "Surveillance & CCTV Oversight",
       "Customer Service Oriented Guarding"
-    ]
+    ],
+    testimonials: [],
+    serviceFaqs: []
   },
   {
     id: "emergency-services",
@@ -195,6 +295,8 @@ export const servicesData: ServiceData[] = [
       "Fire Equipment Maintenance",
       "Emergency Preparedness Training",
       "Government Liaisoning for Safety"
-    ]
+    ],
+    testimonials: [],
+    serviceFaqs: []
   }
 ];

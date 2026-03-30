@@ -112,7 +112,7 @@ const Gallery: React.FC = () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `Dhaal Security - ${image.title}`,
+          title: `${image.title}`,
           text: image.description,
           url: window.location.href,
         });

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, CheckCircle2, ShieldCheck, Send, Sparkles, Loader2, Medal, AlertCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ShieldCheck, Send, Sparkles, Loader2, Medal, AlertCircle, User, ChevronDown } from 'lucide-react';
 import { ServiceData } from '../data/services';
 import { GoogleGenAI } from "@google/genai";
 
@@ -18,6 +18,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   // Gemini State
   const [aiInput, setAiInput] = useState('');
@@ -61,7 +62,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
       
-      const prompt = `You are a security expert at Dhaal Security Services. 
+      const prompt = `You are a security expert at DSS. 
       A potential client is asking about our "${service.title}" service.
       Their specific situation is: "${aiInput}"
       
@@ -257,6 +258,74 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                 )}
               </div>
             </section>
+
+            {/* Testimonials Section */}
+            {service.testimonials && service.testimonials.length > 0 && (
+              <section className="py-16 border-t border-outline-variant/30">
+                <h2 className="text-primary font-headline text-3xl font-bold mb-10 text-center">Client Testimonials</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {service.testimonials.map((testimonial, idx) => (
+                    <motion.div 
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      className="bg-white p-8 rounded-3xl shadow-lg border border-outline-variant/20 relative"
+                    >
+                      <div className="absolute -top-4 -left-4 w-12 h-12 bg-secondary-container text-on-secondary-fixed rounded-full flex items-center justify-center text-4xl font-serif">
+                        "
+                      </div>
+                      <p className="text-on-surface-variant italic mb-6 text-lg leading-relaxed">
+                        {testimonial.quote}
+                      </p>
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mr-4">
+                          <User className="w-6 h-6 text-on-primary" />
+                        </div>
+                        <div>
+                          <h4 className="text-primary font-bold">{testimonial.name}</h4>
+                          <p className="text-on-surface-variant text-sm">{testimonial.role}, {testimonial.company}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Service FAQs Section */}
+            {service.serviceFaqs && service.serviceFaqs.length > 0 && (
+              <section className="py-16 border-t border-outline-variant/30">
+                <h2 className="text-primary font-headline text-3xl font-bold mb-10 text-center">Service FAQs</h2>
+                <div className="max-w-3xl mx-auto space-y-4">
+                  {service.serviceFaqs.map((faq, idx) => (
+                    <div key={idx} className="border border-outline-variant/30 rounded-2xl overflow-hidden">
+                      <button 
+                        onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
+                        className="w-full flex items-center justify-between p-6 bg-white hover:bg-surface-container-low transition-colors text-left"
+                      >
+                        <span className="font-bold text-primary">{faq.question}</span>
+                        <ChevronDown className={`w-5 h-5 text-secondary-container transition-transform ${openFaqIndex === idx ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {openFaqIndex === idx && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="p-6 bg-surface-container-lowest text-on-surface-variant leading-relaxed border-t border-outline-variant/10">
+                              {faq.answer}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
           </div>
 
           {/* Sidebar - Contact Form */}

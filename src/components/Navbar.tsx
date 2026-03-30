@@ -25,7 +25,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           onClick={() => setCurrentPage('home')}
         >
           <img src="/dss-logo.png" alt="DSS Logo" className="w-10 h-10 object-contain" />
-          Dhaal Security
+          DSS
         </div>
         
         {/* Desktop Nav */}
@@ -46,7 +46,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="hidden sm:block bg-secondary-container text-on-secondary-fixed px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-80 transition-all duration-300 active:scale-95">
+          <button 
+            onClick={() => setCurrentPage('contact')}
+            className="hidden sm:block bg-secondary-container text-on-secondary-fixed px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-80 transition-all duration-300 active:scale-95"
+          >
             Get a Quote
           </button>
           
@@ -79,7 +82,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
               {link.name}
             </button>
           ))}
-          <button className="w-full bg-secondary-container text-on-secondary-fixed px-6 py-3 rounded-lg font-bold text-sm">
+          <button 
+            onClick={() => {
+              setCurrentPage('contact');
+              setIsOpen(false);
+            }}
+            className="w-full bg-secondary-container text-on-secondary-fixed px-6 py-3 rounded-lg font-bold text-sm"
+          >
             Get a Quote
           </button>
         </div>
