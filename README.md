@@ -37,7 +37,13 @@ A professional, tactical, and modern multi-page React application for Dhaal Secu
    npm install
    ```
 
-3. Run the development server:
+3. **Important**: Make sure to commit the `package-lock.json` file to your repository:
+   ```bash
+   git add package-lock.json
+   git commit -m "chore: add package-lock.json"
+   ```
+
+4. Run the development server:
    ```bash
    npm run dev
    ```
