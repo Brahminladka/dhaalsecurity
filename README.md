@@ -1,20 +1,66 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Dhaal Security Services Website
 
-# Run and deploy your AI Studio app
+A professional, tactical, and modern multi-page React application for Dhaal Security Services.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/a89a4b33-0f00-4c1d-bf26-7fa4514279c2
+- **Multi-page Architecture**: Home, Services, Gallery, and Contact pages.
+- **Tactical Design**: High-contrast, professional aesthetic with modern animations.
+- **Responsive**: Fully optimized for mobile, tablet, and desktop.
+- **Automated Deployment**: Includes GitHub Actions workflow for GitHub Pages.
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- **React 19**
+- **Vite**
+- **Tailwind CSS 4**
+- **Lucide React** (Icons)
+- **Framer Motion** (Animations)
 
+## Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd <repo-name>
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Deployment to GitHub
+
+To deploy this project to GitHub and get it running on GitHub Pages:
+
+1. **Create a new repository** on GitHub.
+2. **Initialize Git** locally and push your code:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin <your-repo-url>
+   git push -u origin main
+   ```
+3. **Enable GitHub Pages**:
+   - Go to your repository **Settings** > **Pages**.
+   - Under **Build and deployment** > **Source**, select **GitHub Actions**.
+4. The automated workflow in `.github/workflows/deploy.yml` will now build and deploy your site every time you push to the `main` branch.
+
+## License
+
+© 2024 Dhaal Security Services. All rights reserved.
