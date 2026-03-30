@@ -5,6 +5,9 @@ import { Maximize2, Download, Share2, X, ChevronLeft, ChevronRight, ShieldCheck 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = React.useState<any>(null);
   const [isSharing, setIsSharing] = React.useState(false);
+  const [activeCategory, setActiveCategory] = React.useState("All");
+
+  const categories = ["All", "Corporate Security", "Event Security", "Facility Management", "Our Personnel", "Intelligence", "Strategic Protection", "Logo"];
 
   const galleryItems = [
     {
@@ -49,13 +52,17 @@ const Gallery: React.FC = () => {
     },
     {
       id: 6,
-      category: "Strategic Protection",
+      category: "Logo",
       title: "DSS Operational Asset",
       description: "Our core identity representing elite security and facility management.",
-      image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=1200&h=1200",
+      image: "/dss-logo.png",
       size: "square"
     }
   ];
+
+  const filteredItems = activeCategory === "All" 
+    ? galleryItems 
+    : galleryItems.filter(item => item.category === activeCategory);
 
   const handlePrev = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -147,22 +154,44 @@ const Gallery: React.FC = () => {
         </div>
       </header>
 
+      {/* Category Filter */}
+      <section className="py-8 px-6 md:px-12 max-w-7xl mx-auto overflow-x-auto">
+        <div className="flex gap-4 min-w-max pb-4">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-6 py-2 rounded-full font-bold text-sm transition-all duration-300 ${
+                activeCategory === cat 
+                  ? 'bg-secondary-container text-on-secondary-fixed shadow-lg' 
+                  : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </section>
+
       {/* Gallery Grid */}
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {galleryItems.map((item) => (
-            <motion.div 
-              key={item.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              onClick={() => setSelectedImage(item)}
-              className={`relative group overflow-hidden bg-surface-container-high cursor-pointer rounded-xl ${
-                item.size === 'large' ? 'md:col-span-8 md:row-span-2' : 
-                item.size === 'tall' ? 'md:col-span-4 md:row-span-2' : 
-                'md:col-span-4'
-              }`}
-            >
+          <AnimatePresence mode="popLayout">
+            {filteredItems.map((item) => (
+              <motion.div 
+                key={item.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                viewport={{ once: true }}
+                onClick={() => setSelectedImage(item)}
+                className={`relative group overflow-hidden bg-surface-container-high cursor-pointer rounded-xl ${
+                  item.size === 'large' ? 'md:col-span-8 md:row-span-2' : 
+                  item.size === 'tall' ? 'md:col-span-4 md:row-span-2' : 
+                  'md:col-span-4'
+                }`}
+              >
               <img 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0" 
                 src={item.image}
@@ -178,6 +207,7 @@ const Gallery: React.FC = () => {
               </div>
             </motion.div>
           ))}
+          </AnimatePresence>
         </div>
       </section>
 

@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
         <div className="space-y-6">
           <div className="text-2xl font-black text-white font-headline flex items-center gap-2">
-            <Shield className="w-6 h-6 text-secondary-container fill-secondary-container" />
+            <img src="/dss-logo.png" alt="DSS Logo" className="w-8 h-8 object-contain" />
             Dhaal Security
           </div>
           <p className="text-slate-300 text-sm leading-relaxed">Securing India's future through discipline, technology, and absolute integrity.</p>

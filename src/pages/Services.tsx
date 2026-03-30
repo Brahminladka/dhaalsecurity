@@ -22,9 +22,12 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick }) => {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
           <div className="max-w-3xl">
-            <span className="inline-block px-4 py-1 bg-secondary-container text-on-secondary-fixed text-xs font-bold tracking-widest uppercase mb-6 rounded-sm">
-              Strategic Protection
-            </span>
+            <div className="flex items-center gap-4 mb-6">
+              <img src="/dss-logo.png" alt="DSS Logo" className="w-12 h-12 object-contain" />
+              <span className="inline-block px-4 py-1 bg-secondary-container text-on-secondary-fixed text-xs font-bold tracking-widest uppercase rounded-sm">
+                Strategic Protection
+              </span>
+            </div>
             <h1 className="text-white font-headline text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1]">
               Our Elite <span className="text-secondary-container">Services</span>
             </h1>

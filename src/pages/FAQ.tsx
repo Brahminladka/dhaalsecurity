@@ -88,9 +88,12 @@ const FAQ: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1 bg-secondary-container text-on-secondary-fixed text-xs font-bold tracking-widest uppercase mb-6 rounded-sm">
-              Support Center
-            </span>
+            <div className="flex flex-col items-center mb-6">
+              <img src="/dss-logo.png" alt="DSS Logo" className="w-16 h-16 object-contain mb-4" />
+              <span className="inline-block px-4 py-1 bg-secondary-container text-on-secondary-fixed text-xs font-bold tracking-widest uppercase rounded-sm">
+                Support Center
+              </span>
+            </div>
             <h1 className="text-white font-headline text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
               Frequently Asked <span className="text-secondary-container">Questions</span>
             </h1>

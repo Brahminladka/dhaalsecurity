@@ -100,7 +100,10 @@ const Home: React.FC<HomeProps> = ({ onServiceClick }) => {
               viewport={{ once: true }}
               className="space-y-8"
             >
-              <div className="inline-block px-4 py-1.5 bg-primary-container text-on-primary text-xs font-bold uppercase tracking-widest rounded">Welcome to DSS Group</div>
+              <div className="flex items-center gap-4">
+                <img src="/dss-logo.png" alt="DSS Logo" className="w-16 h-16 object-contain" />
+                <div className="inline-block px-4 py-1.5 bg-primary-container text-on-primary text-xs font-bold uppercase tracking-widest rounded">Welcome to DSS Group</div>
+              </div>
               <h2 className="text-primary font-headline text-4xl font-extrabold leading-tight">Providing Security That Makes Your Life Easier</h2>
               <div className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
                 <p>DSS Group is a leading security agency in Bihar & Jharkhand, providing verified and reliable security services with superior safety, risk management, and manpower solutions.</p>
