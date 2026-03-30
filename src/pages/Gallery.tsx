@@ -1,9 +1,10 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { Maximize2, Download, Share2, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Maximize2, Download, Share2, X, ChevronLeft, ChevronRight, ShieldCheck } from 'lucide-react';
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = React.useState<any>(null);
+  const [isSharing, setIsSharing] = React.useState(false);
 
   const galleryItems = [
     {
@@ -45,8 +46,82 @@ const Gallery: React.FC = () => {
       description: "Real-time remote monitoring and surveillance from our central hub.",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRCFrKzMwM2QbzJUFksygfzkb90E8U7MWX57qB3arYSH7UJ66yOAIEelofQ-2ONd_UzBYVNUeuq0CcF31a2G-Gqwj02SCwT5UUDxtKBF_QvsOmXBkerZw7diEFNfuMYb8lBFUQtlBMnHJFcufzgZuKkcrzlIybeiB6o215bt-48YahpjppatiXbbmKQxOZXF-XqA2RkxfNHnFfr54DVGrv92DRbXL4go2Iunf6zuuTrbO6k4pNubRbIwgJrl6VyPR3N7QuYecgGB59",
       size: "large"
+    },
+    {
+      id: 6,
+      category: "Strategic Protection",
+      title: "DSS Operational Asset",
+      description: "Our core identity representing elite security and facility management.",
+      image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=1200&h=1200",
+      size: "square"
     }
   ];
+
+  const handlePrev = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    const currentIndex = galleryItems.findIndex(item => item.id === selectedImage.id);
+    const prevIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    setSelectedImage(galleryItems[prevIndex]);
+  };
+
+  const handleNext = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    const currentIndex = galleryItems.findIndex(item => item.id === selectedImage.id);
+    const nextIndex = (currentIndex + 1) % galleryItems.length;
+    setSelectedImage(galleryItems[nextIndex]);
+  };
+
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+      if (e.key === 'Escape') setSelectedImage(null);
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage]);
+
+  const handleDownload = async (imageUrl: string, title: string) => {
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${title.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed:', error);
+      window.open(imageUrl, '_blank');
+    }
+  };
+
+  const handleShare = async (image: any) => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `Dhaal Security - ${image.title}`,
+          text: image.description,
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.error('Error sharing:', error);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        setIsSharing(true);
+        setTimeout(() => setIsSharing(false), 2000);
+      } catch (error) {
+        console.error('Clipboard failed:', error);
+      }
+    }
+  };
 
   return (
     <div className="pt-20">
@@ -107,44 +182,97 @@ const Gallery: React.FC = () => {
       </section>
 
       {/* Lightbox */}
-      {selectedImage && (
-        <div className="fixed inset-0 z-[100] bg-primary/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12">
-          <button 
-            className="absolute top-8 right-8 text-white hover:text-secondary-container transition-colors"
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-primary/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
             onClick={() => setSelectedImage(null)}
           >
-            <X className="w-10 h-10" />
-          </button>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-white max-w-5xl w-full shadow-2xl relative overflow-hidden rounded-2xl"
-          >
-            <img 
-              className="w-full h-auto max-h-[70vh] object-contain bg-black" 
-              src={selectedImage.image}
-              referrerPolicy="no-referrer"
-            />
-            <div className="p-8 bg-primary text-white">
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                <div>
-                  <p className="text-secondary-container font-headline font-extrabold text-[10px] tracking-widest uppercase">Operational Preview</p>
-                  <h4 className="text-2xl font-headline font-bold mt-1">{selectedImage.title}</h4>
-                  <p className="text-white/60 mt-2">{selectedImage.description}</p>
-                </div>
-                <div className="flex gap-4">
-                  <button className="p-3 border border-white/20 hover:bg-white/10 transition-colors rounded-lg">
-                    <Download className="w-5 h-5" />
-                  </button>
-                  <button className="p-3 border border-white/20 hover:bg-white/10 transition-colors rounded-lg">
-                    <Share2 className="w-5 h-5" />
-                  </button>
+            {/* Close Button */}
+            <button 
+              className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-[110]"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X className="w-10 h-10" />
+            </button>
+
+            {/* Navigation Buttons */}
+            <button 
+              className="absolute left-4 md:left-8 text-white/30 hover:text-white transition-all hover:scale-110 z-[110] p-4"
+              onClick={handlePrev}
+            >
+              <ChevronLeft className="w-12 h-12" />
+            </button>
+            <button 
+              className="absolute right-4 md:right-8 text-white/30 hover:text-white transition-all hover:scale-110 z-[110] p-4"
+              onClick={handleNext}
+            >
+              <ChevronRight className="w-12 h-12" />
+            </button>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-surface-container-lowest max-w-6xl w-full shadow-2xl relative overflow-hidden rounded-3xl border border-white/10"
+            >
+              <div className="relative aspect-video md:aspect-auto md:h-[65vh] bg-black flex items-center justify-center overflow-hidden">
+                <motion.img 
+                  key={selectedImage.image}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full h-full object-contain" 
+                  src={selectedImage.image}
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-6 left-6 flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                  <ShieldCheck className="w-4 h-4 text-secondary-container" />
+                  <span className="text-[10px] font-bold text-white uppercase tracking-widest">Verified Operational Asset</span>
                 </div>
               </div>
-            </div>
+
+              <div className="p-8 md:p-12 bg-primary text-white">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[9px] font-black uppercase tracking-tighter rounded">
+                        {selectedImage.category}
+                      </span>
+                      <span className="text-white/40 text-[10px] font-mono">ID: DSS-2024-{selectedImage.id.toString().padStart(3, '0')}</span>
+                    </div>
+                    <h4 className="text-3xl md:text-4xl font-headline font-black tracking-tight">{selectedImage.title}</h4>
+                    <p className="text-white/60 mt-3 text-lg font-body leading-relaxed max-w-2xl">{selectedImage.description}</p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-4 w-full md:w-auto">
+                    <button 
+                      onClick={() => handleDownload(selectedImage.image, selectedImage.title)}
+                      className="flex-1 md:flex-none px-6 py-4 bg-white/5 border border-white/10 hover:bg-white/10 transition-all rounded-xl flex items-center justify-center gap-3 group"
+                    >
+                      <Download className="w-5 h-5 text-secondary-container group-hover:scale-110 transition-transform" />
+                      <span className="text-xs font-bold uppercase tracking-widest">Download Asset</span>
+                    </button>
+                    <button 
+                      onClick={() => handleShare(selectedImage)}
+                      className="flex-1 md:flex-none px-6 py-4 bg-secondary-container text-on-secondary-fixed hover:brightness-110 transition-all rounded-xl flex items-center justify-center gap-3 group"
+                    >
+                      <Share2 className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                      <span className="text-xs font-bold uppercase tracking-widest">
+                        {isSharing ? 'Link Copied' : 'Share Report'}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
     </div>
   );
 };

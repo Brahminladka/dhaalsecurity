@@ -16,8 +16,8 @@ const Footer: React.FC = () => {
           <h4 className="text-secondary-container font-headline uppercase tracking-widest text-xs font-bold mb-6">Explore</h4>
           <ul className="space-y-3">
             <li><a className="text-slate-300 hover:text-white transition-colors hover:underline decoration-secondary-container underline-offset-4 text-sm" href="#">Services</a></li>
-            <li><a className="text-secondary-container font-semibold text-sm" href="#">About Us</a></li>
-            <li><a className="text-slate-300 hover:text-white transition-colors hover:underline decoration-secondary-container underline-offset-4 text-sm" href="#">Intelligence</a></li>
+            <li><a className="text-slate-300 hover:text-white transition-colors hover:underline decoration-secondary-container underline-offset-4 text-sm" href="#">About Us</a></li>
+            <li><a className="text-slate-300 hover:text-white transition-colors hover:underline decoration-secondary-container underline-offset-4 text-sm" href="#">FAQ</a></li>
             <li><a className="text-slate-300 hover:text-white transition-colors hover:underline decoration-secondary-container underline-offset-4 text-sm" href="#">Case Studies</a></li>
           </ul>
         </div>

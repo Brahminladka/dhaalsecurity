@@ -1,8 +1,85 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, MessageSquare } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, MessageSquare, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    service: 'Corporate Security',
+    message: ''
+  });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) {
+      newErrors.name = 'Full name is required';
+    } else if (formData.name.trim().length < 3) {
+      newErrors.name = 'Name must be at least 3 characters';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email address is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+    setIsConfirmOpen(true);
+  };
+
+  const executeSubmit = async () => {
+    setIsConfirmOpen(false);
+    setStatus('submitting');
+    
+    // Simulate API call
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      setStatus('success');
+      setFormData({ name: '', email: '', service: 'Corporate Security', message: '' });
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+  };
+
+  const shakeVariants = {
+    shake: {
+      x: [0, -5, 5, -5, 5, 0],
+      transition: { duration: 0.4 }
+    }
+  };
+
   return (
     <div className="bg-background text-on-background font-body pt-20">
       {/* Hero Section */}
@@ -68,10 +145,22 @@ const Contact: React.FC = () => {
                   <div className="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <MapPin className="w-6 h-6 text-on-primary" />
                   </div>
-                  <div>
-                    <h4 className="font-headline font-bold text-primary text-lg">Corporate HQ</h4>
-                    <p className="text-on-surface-variant font-medium">Dhaal Tower, Sector 62, Noida</p>
-                    <p className="text-on-surface-variant/70 text-sm">Uttar Pradesh, India - 201309</p>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-headline font-bold text-primary text-lg">Corporate HQ</h4>
+                      <p className="text-on-surface-variant font-medium">Dhaal Tower, Sector 62, Noida</p>
+                      <p className="text-on-surface-variant/70 text-sm">Uttar Pradesh, India - 201309</p>
+                    </div>
+                    <div>
+                      <h4 className="font-headline font-bold text-primary text-lg">Bhagalpur Branch</h4>
+                      <p className="text-on-surface-variant font-medium">Ward No. 6, Prem Nagar, Sabour</p>
+                      <p className="text-on-surface-variant/70 text-sm">Bihar - 813210 | 📞 8252514111</p>
+                    </div>
+                    <div>
+                      <h4 className="font-headline font-bold text-primary text-lg">Jamshedpur Branch</h4>
+                      <p className="text-on-surface-variant font-medium">Road No. 4, Adityapur-2</p>
+                      <p className="text-on-surface-variant/70 text-sm">Saraikela-Kharsawan, Jharkhand - 831013</p>
+                    </div>
                   </div>
                 </div>
 
@@ -107,56 +196,139 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               className="bg-white p-8 md:p-12 rounded-2xl shadow-[0_30px_60px_rgba(0,0,60,0.08)] border border-primary/5"
             >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center">
-                  <MessageSquare className="w-5 h-5 text-on-secondary-fixed" />
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center">
+                    <MessageSquare className="w-5 h-5 text-on-secondary-fixed" />
+                  </div>
+                  <h3 className="text-primary font-headline text-2xl font-bold">Send a Message</h3>
                 </div>
-                <h3 className="text-primary font-headline text-2xl font-bold">Send a Message</h3>
               </div>
 
-              <form className="space-y-6">
+              <AnimatePresence mode="wait">
+                {status === 'success' && (
+                  <motion.div 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mb-8 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3 text-green-700"
+                  >
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                    <p className="text-sm font-bold">Your inquiry has been sent successfully! Our team will get back to you shortly.</p>
+                  </motion.div>
+                )}
+                {status === 'error' && (
+                  <motion.div 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3 text-red-700"
+                  >
+                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    <p className="text-sm font-bold">There was an issue submitting your request. Please try again or contact us directly via phone.</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="John Doe"
-                      className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none"
-                    />
+                    <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-1">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
+                    <motion.div
+                      animate={errors.name ? "shake" : "idle"}
+                      variants={shakeVariants}
+                    >
+                      <input 
+                        type="text" 
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="John Doe"
+                        className={`w-full px-4 py-3 bg-surface-container-low border ${errors.name ? 'border-red-500' : 'border-outline-variant'} rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none`}
+                      />
+                    </motion.div>
+                    {errors.name && <p className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.name}</p>}
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Email Address</label>
-                    <input 
-                      type="email" 
-                      placeholder="john@company.com"
-                      className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none"
-                    />
+                    <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-1">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <motion.div
+                      animate={errors.email ? "shake" : "idle"}
+                      variants={shakeVariants}
+                    >
+                      <input 
+                        type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="john@company.com"
+                        className={`w-full px-4 py-3 bg-surface-container-low border ${errors.email ? 'border-red-500' : 'border-outline-variant'} rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none`}
+                      />
+                    </motion.div>
+                    {errors.email && <p className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.email}</p>}
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Service Required</label>
-                  <select className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none appearance-none">
-                    <option>Corporate Security</option>
-                    <option>Event Security</option>
-                    <option>Executive Protection</option>
-                    <option>Facility Management</option>
-                    <option>Intelligence Services</option>
-                  </select>
+                  <div className="relative">
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none appearance-none"
+                    >
+                      <option>Corporate Security</option>
+                      <option>Event Security</option>
+                      <option>Executive Protection</option>
+                      <option>Facility Management</option>
+                      <option>Intelligence Services</option>
+                    </select>
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
+                      <ShieldCheck className="w-4 h-4" />
+                    </div>
+                  </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Message</label>
-                  <textarea 
-                    rows={4}
-                    placeholder="Tell us about your security requirements..."
-                    className="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none resize-none"
-                  ></textarea>
+                  <label className="text-xs font-bold uppercase tracking-widest text-on-surface-variant flex items-center gap-1">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <motion.div
+                    animate={errors.message ? "shake" : "idle"}
+                    variants={shakeVariants}
+                  >
+                    <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={4}
+                      placeholder="Tell us about your security requirements..."
+                      className={`w-full px-4 py-3 bg-surface-container-low border ${errors.message ? 'border-red-500' : 'border-outline-variant'} rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none resize-none`}
+                    ></textarea>
+                  </motion.div>
+                  {errors.message && <p className="text-red-500 text-[10px] font-bold uppercase tracking-wider">{errors.message}</p>}
                 </div>
 
-                <button className="w-full bg-primary text-white py-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all active:scale-[0.98] shadow-lg shadow-primary/20">
-                  <Send className="w-4 h-4" />
-                  Submit Tactical Request
+                <button 
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className={`w-full ${status === 'submitting' ? 'bg-primary/50 cursor-not-allowed' : 'bg-primary hover:bg-primary/90'} text-white py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-lg shadow-primary/20`}
+                >
+                  {status === 'submitting' ? (
+                    <motion.div 
+                      animate={{ rotate: 360 }}
+                      transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                    >
+                      <ShieldCheck className="w-5 h-5" />
+                    </motion.div>
+                  ) : (
+                    <Send className="w-4 h-4" />
+                  )}
+                  {status === 'submitting' ? 'Processing Transmission...' : 'Submit Tactical Request'}
                 </button>
               </form>
             </motion.div>
@@ -175,6 +347,55 @@ const Contact: React.FC = () => {
         {/* In a real app, you'd embed a Google Map here */}
         <div className="absolute inset-0 bg-primary/5 pointer-events-none"></div>
       </section>
+
+      {/* Confirmation Dialog */}
+      <AnimatePresence>
+        {isConfirmOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsConfirmOpen(false)}
+              className="absolute inset-0 bg-primary/80 backdrop-blur-sm"
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border border-primary/10"
+            >
+              <div className="p-8">
+                <div className="w-16 h-16 bg-secondary-container/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <ShieldCheck className="w-8 h-8 text-secondary-container" />
+                </div>
+                <h3 className="text-primary font-headline text-2xl font-bold text-center mb-4">Confirm Tactical Request</h3>
+                <p className="text-on-surface-variant text-center mb-8">
+                  Are you sure you want to submit this security inquiry? Our deployment team will be notified immediately.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <button 
+                    onClick={() => setIsConfirmOpen(false)}
+                    className="px-6 py-3 border border-outline-variant rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-surface-container-low transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button 
+                    onClick={executeSubmit}
+                    className="px-6 py-3 bg-primary text-white rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+                  >
+                    Confirm
+                  </button>
+                </div>
+              </div>
+              <div className="bg-surface-container-low px-8 py-4 border-t border-outline-variant/30 flex items-center justify-center gap-2">
+                <AlertCircle className="w-4 h-4 text-on-surface-variant/50" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant/50">Secure Transmission Protocol</span>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
