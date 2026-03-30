@@ -50,7 +50,7 @@ A professional, tactical, and modern multi-page React application for Dhaal Secu
 
 ### Deployment to GitHub
 
-To deploy this project to GitHub and get it running on GitHub Pages:
+**CRITICAL STEP**: Before your first deployment, you must enable GitHub Pages in your repository settings.
 
 1. **Create a new repository** on GitHub.
 2. **Initialize Git** locally and push your code:
@@ -62,10 +62,12 @@ To deploy this project to GitHub and get it running on GitHub Pages:
    git remote add origin <your-repo-url>
    git push -u origin main
    ```
-3. **Enable GitHub Pages**:
-   - Go to your repository **Settings** > **Pages**.
-   - Under **Build and deployment** > **Source**, select **GitHub Actions**.
-4. The automated workflow in `.github/workflows/deploy.yml` will now build and deploy your site every time you push to the `main` branch.
+3. **Enable GitHub Pages (MANDATORY)**:
+   - Go to your repository **Settings** on GitHub.
+   - Click on **Pages** in the left sidebar.
+   - Under **Build and deployment** > **Source**, change the dropdown from "Deploy from a branch" to **"GitHub Actions"**.
+   - **Note**: The build will fail until you complete this step.
+4. Once enabled, the automated workflow in `.github/workflows/deploy.yml` will build and deploy your site every time you push to the `main` branch.
 
 ## License
 
