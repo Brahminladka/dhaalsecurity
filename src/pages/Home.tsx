@@ -12,27 +12,48 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative h-[819px] flex items-center bg-hero-pattern overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12">
+      <section className="relative h-[85vh] min-h-[600px] flex items-center bg-hero-pattern-2 overflow-hidden">
+        <div className="absolute inset-0 bg-primary/60 backdrop-brightness-75"></div>
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="max-w-3xl space-y-8"
           >
-            <h1 className="text-white font-headline text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
-              Our Journey of Vigilance
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/20 border border-secondary-container/30 text-secondary-container text-xs font-bold uppercase tracking-widest">
+              <Shield className="w-4 h-4" />
+              India's Most Trusted Security Partner
+            </div>
+            <h1 className="text-white font-headline text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
+              Elite Protection & <span className="text-secondary-container">Tactical Security</span> Solutions
             </h1>
-            <p className="text-white/90 text-lg md:text-xl font-body leading-relaxed max-w-xl">
-              Founded on the principles of absolute integrity and tactical precision, DSS has evolved into India's premier manpower solution.
+            <p className="text-white/90 text-lg md:text-xl font-body leading-relaxed max-w-2xl">
+              Dhaal Security Services Pvt. Ltd. provides premier guarding, armed personnel, and comprehensive manpower solutions across PAN India. Your safety is our absolute priority.
             </p>
-            <button 
-              onClick={onContactClick}
-              className="bg-secondary-container text-on-secondary-fixed px-8 py-4 rounded-lg font-bold text-lg hover:opacity-80 transition-all duration-300 active:scale-95 shadow-xl"
-            >
-              Request Assessment
-            </button>
+            <div className="flex flex-wrap gap-4 pt-4">
+              <button 
+                onClick={onContactClick}
+                className="bg-secondary-container text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-white transition-all duration-300 active:scale-95 shadow-xl flex items-center gap-2"
+              >
+                Get a Free Quote
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <a 
+                href="tel:+919450783665"
+                className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
+              >
+                Call Now
+              </a>
+              <a 
+                href="https://wa.me/919450783665"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
+              >
+                WhatsApp
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -44,7 +65,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
             <div className="max-w-2xl">
               <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Our Expertise</span>
               <h2 className="text-primary font-headline text-4xl md:text-5xl font-black tracking-tight">Core Security Services</h2>
-              <p className="text-on-surface-variant mt-4 text-lg font-body">Tactical protection solutions engineered for Bihar & Jharkhand's most critical environments.</p>
+              <p className="text-on-surface-variant mt-4 text-lg font-body">Tactical protection solutions engineered for India's most critical environments.</p>
             </div>
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} // This is just a placeholder, App.tsx handles navigation
@@ -109,8 +130,8 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
                 <div className="inline-block px-4 py-1.5 bg-primary-container text-on-primary text-xs font-bold uppercase tracking-widest rounded">Welcome to DSS Group</div>
               </div>
               <div className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
-                <p>DSS Group is a leading security agency in Bihar, providing verified and reliable security services with superior safety, risk management, and manpower solutions.</p>
-                <p>Dhaal Security Services Pvt. Ltd. was established to deliver a complete manpower solution. Our headquarters is located near Surya Mandir, Anisabad, Patna.</p>
+                <p>Dhaal Security Services Pvt. Ltd. is a premier security agency providing verified and reliable security services across PAN India. We deliver superior safety, risk management, and comprehensive manpower solutions to diverse sectors.</p>
+                <p>Established with a vision to redefine protection standards, we operate with tactical precision and absolute integrity. Our national presence ensures that we can deploy elite personnel wherever your assets need protection.</p>
               </div>
               
               <div className="grid grid-cols-2 gap-6 pt-4">
@@ -170,84 +191,56 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-1/3 h-full bg-surface-container-low opacity-50 -skew-x-12 translate-x-1/2"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Mission Card */}
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              className="bg-primary p-12 lg:p-16 space-y-8 group transition-all duration-500 hover:shadow-2xl"
-            >
-              <Network className="text-secondary-container w-12 h-12" />
-              <h3 className="text-white font-headline text-3xl font-bold tracking-tight">Mission</h3>
-              <ul className="text-white/80 text-lg font-body space-y-2">
-                <li>• Build long-term partnerships with clients</li>
-                <li>• Provide innovative security solutions</li>
-                <li>• Deliver exceptional value for money</li>
-                <li>• Ensure absolute peace of mind</li>
-              </ul>
-            </motion.div>
-            {/* Vision Card */}
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              className="bg-surface-container-high p-12 lg:p-16 space-y-8 group transition-all duration-500 hover:shadow-2xl"
-            >
-              <Eye className="text-primary w-12 h-12" />
-              <h3 className="text-primary font-headline text-3xl font-bold tracking-tight">Vision</h3>
-              <p className="text-on-surface-variant text-xl font-body leading-relaxed italic">
-                "To become a leading provider of property and facility management services using advanced technology and excellence."
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recruitment Process Section */}
-      <section className="py-24 bg-surface-container-low">
+      {/* Why Choose Us & Strengths */}
+      <section className="py-24 bg-primary text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-primary font-bold uppercase tracking-[0.3em] text-xs mb-4 block">Our Standards</span>
-            <h2 className="text-primary font-headline text-4xl md:text-5xl font-black tracking-tight">Recruitment Process</h2>
-          </div>
-          
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              {
-                title: "Lady Security Guard",
-                specs: ["Height: 5 ft", "Weight: 45 kg", "Education: Matriculation"]
-              },
-              {
-                title: "Security Guard",
-                specs: ["Height: 5 ft 7 in", "Weight: 55 kg", "Education: Minimum HS"]
-              },
-              {
-                title: "Security Supervisor",
-                specs: ["Height: 5 ft 7 in", "Weight: 55 kg", "Education: Graduation", "Exp: 3+ Years"]
-              },
-              {
-                title: "Assistant Security Officer",
-                specs: ["Height: 5 ft 7 in", "Weight: 55 kg", "Education: Graduate", "Exp: 5+ Years"]
-              }
-            ].map((role, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -10 }}
-                className="bg-white p-8 border border-outline-variant rounded-xl shadow-sm hover:shadow-md transition-all"
-              >
-                <Users className="w-8 h-8 text-primary mb-6" />
-                <h4 className="font-headline font-bold text-lg text-primary mb-4">{role.title}</h4>
-                <ul className="space-y-2">
-                  {role.specs.map((spec, j) => (
-                    <li key={j} className="text-on-surface-variant text-sm flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-secondary-container rounded-full"></div>
-                      {spec}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <span className="text-secondary-container font-bold uppercase tracking-[0.3em] text-xs block">Why Choose Us</span>
+              <h2 className="font-headline text-4xl md:text-5xl font-black tracking-tight">The Dhaal Advantage</h2>
+              <p className="text-white/70 text-lg leading-relaxed">
+                We don't just provide guards; we architect comprehensive safety ecosystems. Our approach combines human vigilance with strategic police liaison and rapid response capabilities.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  { icon: <Shield className="w-6 h-6" />, title: "24/7 Control Room", desc: "Constant monitoring and coordination from our central hub." },
+                  { icon: <Users className="w-6 h-6" />, title: "Rapid Response Team", desc: "Elite mobile units ready to deploy within minutes of an alert." },
+                  { icon: <GraduationCap className="w-6 h-6" />, title: "Trained Personnel", desc: "Rigorous physical and tactical training for all staff." },
+                  { icon: <Gavel className="w-6 h-6" />, title: "Police Liaison", desc: "Strong coordination with local law enforcement agencies." }
+                ].map((item, i) => (
+                  <div key={i} className="space-y-3">
+                    <div className="text-secondary-container">{item.icon}</div>
+                    <h4 className="font-bold text-lg">{item.title}</h4>
+                    <p className="text-white/60 text-sm">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square bg-secondary-container/10 rounded-full absolute inset-0 scale-110 blur-3xl"></div>
+              <div className="relative grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-2xl">
+                    <div className="text-secondary-container text-4xl font-black mb-2">12+</div>
+                    <div className="text-white/60 text-xs uppercase tracking-widest font-bold">Years of Excellence</div>
+                  </div>
+                  <div className="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-2xl">
+                    <div className="text-secondary-container text-4xl font-black mb-2">500+</div>
+                    <div className="text-white/60 text-xs uppercase tracking-widest font-bold">Corporate Clients</div>
+                  </div>
+                </div>
+                <div className="space-y-4 pt-8">
+                  <div className="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-2xl">
+                    <div className="text-secondary-container text-4xl font-black mb-2">15K+</div>
+                    <div className="text-white/60 text-xs uppercase tracking-widest font-bold">Guards Deployed</div>
+                  </div>
+                  <div className="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-2xl">
+                    <div className="text-secondary-container text-4xl font-black mb-2">PAN</div>
+                    <div className="text-white/60 text-xs uppercase tracking-widest font-bold">India Presence</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -323,7 +316,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
               {
                 quote: "Meticulous attention to detail. From housekeeping to armed guarding, Dhaal provides a seamless manpower solution for our entire campus.",
                 author: "Dr. Anjali Sharma",
-                company: "New Era High School Patna",
+                company: "New Era High School",
                 role: "Principal",
                 rating: 5
               },
@@ -380,6 +373,39 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-24 bg-surface-container-lowest relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary-container to-transparent opacity-30"></div>
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <h2 className="text-primary font-headline text-4xl md:text-6xl font-black tracking-tight">Ready to Secure Your Assets?</h2>
+            <p className="text-on-surface-variant text-xl max-w-2xl mx-auto font-body">
+              Join 500+ corporate partners who trust Dhaal Security Services for their national protection needs.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 pt-4">
+              <button 
+                onClick={onContactClick}
+                className="bg-primary text-white px-10 py-5 rounded-xl font-bold text-xl hover:brightness-110 transition-all shadow-2xl flex items-center gap-3 group"
+              >
+                Get a Custom Proposal
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a 
+                href="tel:+919450783665"
+                className="bg-surface-container text-primary border border-outline-variant px-10 py-5 rounded-xl font-bold text-xl hover:bg-surface-container-high transition-all flex items-center gap-3"
+              >
+                Speak with an Expert
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>

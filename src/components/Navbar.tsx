@@ -13,6 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
     { name: 'Home', id: 'home' },
     { name: 'Services', id: 'services' },
     { name: 'Gallery', id: 'gallery' },
+    { name: 'Careers', id: 'careers' },
     { name: 'FAQ', id: 'faq' },
     { name: 'Contact', id: 'contact' },
   ];

@@ -19,11 +19,24 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   // Gemini State
   const [aiInput, setAiInput] = useState('');
   const [aiResponse, setAiResponse] = useState('');
   const [isAiLoading, setIsAiLoading] = useState(false);
+
+  const nextTestimonial = () => {
+    if (service.testimonials) {
+      setCurrentTestimonial((prev) => (prev + 1) % service.testimonials!.length);
+    }
+  };
+
+  const prevTestimonial = () => {
+    if (service.testimonials) {
+      setCurrentTestimonial((prev) => (prev - 1 + service.testimonials!.length) % service.testimonials!.length);
+    }
+  };
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -259,36 +272,77 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
               </div>
             </section>
 
-            {/* Testimonials Section */}
+            {/* Testimonials Section - Carousel */}
             {service.testimonials && service.testimonials.length > 0 && (
               <section className="py-16 border-t border-outline-variant/30">
                 <h2 className="text-primary font-headline text-3xl font-bold mb-10 text-center">Client Testimonials</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {service.testimonials.map((testimonial, idx) => (
-                    <motion.div 
-                      key={idx}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      className="bg-white p-8 rounded-3xl shadow-lg border border-outline-variant/20 relative"
+                <div className="relative max-w-2xl mx-auto px-4">
+                  <div className="overflow-hidden relative min-h-[300px] flex items-center">
+                    <AnimatePresence mode="wait">
+                      <motion.div 
+                        key={currentTestimonial}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        onDragEnd={(_, info) => {
+                          if (info.offset.x < -50) nextTestimonial();
+                          if (info.offset.x > 50) prevTestimonial();
+                        }}
+                        className="w-full bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-outline-variant/20 relative cursor-grab active:cursor-grabbing"
+                      >
+                        <div className="absolute -top-4 -left-4 w-12 h-12 bg-secondary-container text-on-secondary-fixed rounded-full flex items-center justify-center text-4xl font-serif shadow-lg">
+                          "
+                        </div>
+                        <p className="text-on-surface-variant italic mb-8 text-xl leading-relaxed">
+                          {service.testimonials[currentTestimonial].quote}
+                        </p>
+                        <div className="flex items-center">
+                          <div className="w-14 h-14 bg-primary-container rounded-full flex items-center justify-center mr-4 shadow-inner">
+                            <User className="w-7 h-7 text-on-primary" />
+                          </div>
+                          <div>
+                            <h4 className="text-primary font-bold text-lg">{service.testimonials[currentTestimonial].name}</h4>
+                            <p className="text-on-surface-variant text-sm font-medium">
+                              {service.testimonials[currentTestimonial].role}, {service.testimonials[currentTestimonial].company}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Carousel Controls */}
+                  <div className="flex justify-center items-center gap-6 mt-8">
+                    <button 
+                      onClick={prevTestimonial}
+                      className="p-3 rounded-full bg-surface-container hover:bg-secondary-container hover:text-on-secondary-fixed transition-all shadow-md group"
+                      aria-label="Previous testimonial"
                     >
-                      <div className="absolute -top-4 -left-4 w-12 h-12 bg-secondary-container text-on-secondary-fixed rounded-full flex items-center justify-center text-4xl font-serif">
-                        "
-                      </div>
-                      <p className="text-on-surface-variant italic mb-6 text-lg leading-relaxed">
-                        {testimonial.quote}
-                      </p>
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center mr-4">
-                          <User className="w-6 h-6 text-on-primary" />
-                        </div>
-                        <div>
-                          <h4 className="text-primary font-bold">{testimonial.name}</h4>
-                          <p className="text-on-surface-variant text-sm">{testimonial.role}, {testimonial.company}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
+                      <ArrowLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+                    </button>
+                    
+                    <div className="flex gap-2">
+                      {service.testimonials.map((_, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCurrentTestimonial(idx)}
+                          className={`w-2.5 h-2.5 rounded-full transition-all ${currentTestimonial === idx ? 'bg-secondary-container w-8' : 'bg-outline-variant hover:bg-outline'}`}
+                          aria-label={`Go to testimonial ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
+
+                    <button 
+                      onClick={nextTestimonial}
+                      className="p-3 rounded-full bg-surface-container hover:bg-secondary-container hover:text-on-secondary-fixed transition-all shadow-md group"
+                      aria-label="Next testimonial"
+                    >
+                      <ArrowLeft className="w-5 h-5 rotate-180 group-hover:translate-x-0.5 transition-transform" />
+                    </button>
+                  </div>
                 </div>
               </section>
             )}
@@ -349,7 +403,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                         exit={{ opacity: 0, scale: 0.9 }}
                         className="text-center py-10"
                       >
-                        <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div className="w-20 h-20 bg-secondary-container/20 text-secondary-container rounded-full flex items-center justify-center mx-auto mb-6">
                           <CheckCircle2 className="w-10 h-10" />
                         </div>
                         <h4 className="text-2xl font-bold text-primary mb-2">Request Received</h4>

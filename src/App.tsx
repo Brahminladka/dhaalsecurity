@@ -6,6 +6,7 @@ import Services from './pages/Services';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
+import Careers from './pages/Careers';
 import ServiceDetail from './pages/ServiceDetail';
 import { servicesData } from './data/services';
 
@@ -42,13 +43,15 @@ const App: React.FC = () => {
         return <Contact />;
       case 'faq':
         return <FAQ />;
+      case 'careers':
+        return <Careers />;
       default:
         return <Home />;
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-on-background font-body selection:bg-secondary-container selection:text-on-secondary-fixed">
+    <div className="min-h-screen flex flex-col bg-background text-on-background font-body">
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
       
       <main className="flex-grow">

@@ -24,7 +24,7 @@ const FAQ: React.FC = () => {
       items: [
         {
           question: "Where is your head office located?",
-          answer: "Our head office is located at Near Surya Mandir, 1st Floor, Phulwari Khagaul Road, Anisabad, Patna, Bihar – 800002. We serve the regional security needs effectively across Bihar."
+          answer: "Our Corporate Head Office is strategically located to serve as our central command center for operations across PAN India. We have a robust network of regional offices to ensure seamless security deployment nationwide."
         },
         {
           question: "Is Dhaal Security a licensed agency?",

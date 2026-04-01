@@ -148,7 +148,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-headline font-bold text-primary text-lg">Operational Inquiries</h4>
-                    <p className="text-on-surface-variant font-medium">dssplpatna@gmail.com</p>
+                    <p className="text-on-surface-variant font-medium">info@dhaalsecurity.com</p>
                     <p className="text-on-surface-variant/70 text-sm">Response within 24 hours</p>
                   </div>
                 </div>
@@ -159,10 +159,11 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-headline font-bold text-primary text-lg">Corporate Office</h4>
+                      <h4 className="font-headline font-bold text-primary text-lg">Corporate Head Office</h4>
                       <p className="text-on-surface-variant font-medium">Near Surya Mandir, 1st Floor,</p>
                       <p className="text-on-surface-variant font-medium">Phulwari Khagaul Road, Anisabad,</p>
-                      <p className="text-on-surface-variant/70 text-sm">Patna, Bihar – 800002</p>
+                      <p className="text-on-surface-variant/70 text-sm">Corporate Head Office, India</p>
+                      <p className="text-secondary-container font-bold text-xs uppercase tracking-widest mt-2">Serving PAN India</p>
                     </div>
                   </div>
                 </div>
@@ -214,7 +215,7 @@ const Contact: React.FC = () => {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
-                    className="mb-8 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3 text-green-700"
+                    className="mb-8 p-4 bg-secondary-container/10 border border-secondary-container/30 rounded-lg flex items-center gap-3 text-primary"
                   >
                     <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
                     <p className="text-sm font-bold">Your inquiry has been sent successfully! Our team will get back to you shortly.</p>

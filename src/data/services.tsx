@@ -36,8 +36,8 @@ export const servicesData: ServiceData[] = [
     image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCJOZmO1EOT0FC2vA5mwrT8kp9yyuFW36AgkFHW04WhSm85XHR3VSy4or-FH5rmeOqUWWh_N-5imqT4uE6sLPddnbhm2zherF8RKv_TQ9oVe-jUaisMHAmb3wz9FVaRJAY_Gpks4aP9g_6KmXFGfUrZf3kE9CbvCTY0JxJouWyKfAhb5oWDsiGh7wdcpbb6i7v9kT8F7tHbmeESV-MP-_AV-hZ2402hgrI6dSjSDLJZLWgqmT4DpfKaH1iE1ez6JcVvNrrFdFylr8sC",
     caseStudy: {
       title: "Industrial Complex Perimeter Security",
-      description: "A large-scale manufacturing unit in Patna was facing repeated unauthorized entries and theft of raw materials.",
-      outcome: "After deploying a specialized 24/7 patrolling team and implementing a strict access control log, unauthorized entries were reduced to zero within the first month."
+      description: "A large-scale manufacturing unit was facing repeated unauthorized entries and theft of raw materials.",
+      outcome: "After deploying a specialized 24/7 PAN India patrolling team and implementing a strict access control log, unauthorized entries were reduced to zero within the first month."
     },
     features: [
       "24/7 Static & Mobile Patrolling",
@@ -132,8 +132,8 @@ export const servicesData: ServiceData[] = [
       {
         name: "Dr. Anjali Sharma",
         role: "Principal",
-        company: "New Era High School Patna",
-        quote: "Meticulous attention to detail. Dhaal provides a seamless manpower solution for our entire campus, ensuring our female students feel safe."
+        company: "New Era High School",
+        quote: "Meticulous attention to detail. Dhaal Security Services provides a seamless, high-trust manpower solution for our entire campus, ensuring our students and staff feel completely safe at all times."
       }
     ],
     serviceFaqs: [
@@ -220,8 +220,8 @@ export const servicesData: ServiceData[] = [
     image: "https://picsum.photos/seed/industrial/1920/1080",
     caseStudy: {
       title: "Manufacturing Plant Perimeter Integrity",
-      description: "A major industrial hub in Bhagalpur was experiencing inventory shrinkage and unauthorized access.",
-      outcome: "By deploying a specialized industrial security team and implementing a digital log system, inventory losses were reduced by 95% within 3 months."
+      description: "A major industrial hub was experiencing inventory shrinkage and unauthorized access.",
+      outcome: "By deploying a specialized industrial security team and implementing a digital log system across multiple sites, inventory losses were reduced by 95% within 3 months."
     },
     features: [
       "Perimeter Surveillance & Patrolling",
@@ -242,8 +242,8 @@ export const servicesData: ServiceData[] = [
     image: "https://picsum.photos/seed/hotel/1920/1080",
     caseStudy: {
       title: "Luxury Hotel Guest Safety",
-      description: "A premier hotel in Patna required a security team that could handle high-profile guests and large events without disrupting the guest experience.",
-      outcome: "Our team provided a seamless security layer, successfully managing over 50 high-profile events with zero security incidents."
+      description: "A premier hotel required a security team that could handle high-profile guests and large events without disrupting the guest experience.",
+      outcome: "Our team provided a seamless security layer for their PAN India locations, successfully managing over 50 high-profile events with zero security incidents."
     },
     features: [
       "Guest & Staff Safety Protocols",
@@ -264,8 +264,8 @@ export const servicesData: ServiceData[] = [
     image: "https://picsum.photos/seed/retail/1920/1080",
     caseStudy: {
       title: "Commercial Complex Access Control",
-      description: "A busy commercial complex in Jamshedpur was struggling with unauthorized parking and vendor management.",
-      outcome: "Our integrated security and parking management solution improved traffic flow by 50% and eliminated unauthorized vendor entry."
+      description: "A busy commercial complex was struggling with unauthorized parking and vendor management.",
+      outcome: "Our integrated security and parking management solution improved traffic flow by 50% and eliminated unauthorized vendor entry across their national chain."
     },
     features: [
       "Loss Prevention & Shoplifting Deterrence",
