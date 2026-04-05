@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, CheckCircle2, ShieldCheck, Send, Sparkles, Loader2, Medal, AlertCircle, User, ChevronDown } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ShieldCheck, Send, Loader2, Medal, AlertCircle, User, ChevronDown } from 'lucide-react';
 import { ServiceData } from '../data/services';
-import { GoogleGenAI } from "@google/genai";
 
 interface ServiceDetailProps {
   service: ServiceData;
@@ -20,11 +19,6 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  // Gemini State
-  const [aiInput, setAiInput] = useState('');
-  const [aiResponse, setAiResponse] = useState('');
-  const [isAiLoading, setIsAiLoading] = useState(false);
 
   const nextTestimonial = () => {
     if (service.testimonials) {
@@ -68,34 +62,6 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleAiConsult = async () => {
-    if (!aiInput.trim()) return;
-    
-    setIsAiLoading(true);
-    try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      
-      const prompt = `You are a security expert at DSS. 
-      A potential client is asking about our "${service.title}" service.
-      Their specific situation is: "${aiInput}"
-      
-      Provide a professional, tactical, and brief security recommendation (max 150 words). 
-      Highlight how our ${service.title} service specifically addresses their concern. 
-      Use a professional, authoritative tone.`;
-
-      const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: [{ parts: [{ text: prompt }] }],
-      });
-      
-      setAiResponse(response.text || "I apologize, but I'm unable to provide a recommendation at this moment.");
-    } catch (error) {
-      console.error("Gemini Error:", error);
-      setAiResponse("I apologize, but I'm unable to provide a recommendation at this moment. Please contact our human experts below for a detailed assessment.");
-    } finally {
-      setIsAiLoading(false);
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -228,49 +194,6 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
               </div>
             </section>
 
-            {/* Gemini AI Consultant */}
-            <section className="bg-white p-10 rounded-3xl border-2 border-secondary-container/20 shadow-xl">
-              <div className="flex items-center mb-6">
-                <div className="p-2 bg-secondary-container/10 rounded-lg mr-4">
-                  <Sparkles className="w-6 h-6 text-secondary-container" />
-                </div>
-                <div>
-                  <h2 className="text-primary font-headline text-2xl font-bold">AI Security Consultant</h2>
-                  <p className="text-on-surface-variant text-sm">Get an instant tactical recommendation powered by Gemini</p>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="relative">
-                  <textarea 
-                    value={aiInput}
-                    onChange={(e) => setAiInput(e.target.value)}
-                    placeholder="Describe your specific security concern or site requirements..."
-                    className="w-full bg-surface-container-low border-none rounded-2xl p-5 text-on-surface focus:ring-2 focus:ring-secondary-container min-h-[120px] resize-none transition-all"
-                  />
-                  <button 
-                    onClick={handleAiConsult}
-                    disabled={isAiLoading || !aiInput.trim()}
-                    className="absolute bottom-4 right-4 bg-primary text-white p-3 rounded-xl hover:brightness-110 disabled:opacity-50 transition-all shadow-lg"
-                  >
-                    {isAiLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
-                  </button>
-                </div>
-
-                {aiResponse && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-primary/5 border-l-4 border-secondary-container p-6 rounded-r-2xl"
-                  >
-                    <h4 className="text-primary font-bold text-sm uppercase tracking-widest mb-2">Tactical Recommendation:</h4>
-                    <p className="text-on-surface leading-relaxed italic">
-                      "{aiResponse}"
-                    </p>
-                  </motion.div>
-                )}
-              </div>
-            </section>
 
             {/* Testimonials Section - Carousel */}
             {service.testimonials && service.testimonials.length > 0 && (
