@@ -89,7 +89,7 @@ const FAQ: React.FC<FAQProps> = ({ setCurrentPage }) => {
             transition={{ duration: 0.6 }}
           >
             <div className="flex flex-col items-center mb-6">
-              <img src="/dss-logo.png" alt="DSS Logo" className="w-16 h-16 object-contain mb-4" />
+              <img src="dss-logo.png" alt="DSS Logo" className="w-16 h-16 object-contain mb-4" />
               <span className="inline-block px-4 py-1 bg-secondary-container text-on-secondary-fixed text-xs font-bold tracking-widest uppercase rounded-sm">
                 Support Center
               </span>

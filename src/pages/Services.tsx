@@ -32,7 +32,7 @@ const Services: React.FC<ServicesProps> = ({ onServiceClick, onGetQuote }) => {
         <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
-              <img src="/dss-logo.png" alt="DSS Logo" className="w-12 h-12 object-contain" />
+              <img src="dss-logo.png" alt="DSS Logo" className="w-12 h-12 object-contain" />
               <span className="inline-block px-4 py-1 bg-secondary-container text-on-secondary-fixed text-xs font-bold tracking-widest uppercase rounded-sm">
                 Strategic Protection
               </span>

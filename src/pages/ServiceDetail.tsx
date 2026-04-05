@@ -148,7 +148,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
               <div className="p-4 bg-secondary-container text-on-secondary-fixed rounded-2xl shadow-lg">
                 {service.icon}
               </div>
-              <img src="/dss-logo.png" alt="DSS Logo" className="absolute -top-2 -right-2 w-8 h-8 object-contain bg-white rounded-full p-1 shadow-md" />
+              <img src="dss-logo.png" alt="DSS Logo" className="absolute -top-2 -right-2 w-8 h-8 object-contain bg-white rounded-full p-1 shadow-md" />
             </div>
             <div>
               <h1 className="text-white font-headline text-4xl md:text-5xl font-extrabold tracking-tight">
