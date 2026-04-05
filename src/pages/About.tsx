@@ -23,7 +23,7 @@ const About: React.FC = () => {
               Legacy of <span className="text-secondary-container">Absolute Protection</span>
             </h1>
             <p className="text-white/80 text-xl max-w-3xl mx-auto font-body leading-relaxed">
-              Founded on the principles of tactical precision and ethical integrity, Dhaal Security Services Pvt. Ltd. has evolved into India's most trusted partner for elite guarding and manpower solutions.
+              Established in 2022, Dhaal Security Services Pvt. Ltd. is a PSARA-licensed firm that has evolved into India's most trusted partner for elite guarding and SOP-driven manpower solutions.
             </p>
           </motion.div>
         </div>
@@ -42,14 +42,14 @@ const About: React.FC = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <img src="dss-logo.png" alt="DSS Logo" className="w-16 h-16 object-contain" />
-                  <div className="inline-block px-4 py-1.5 bg-primary-container text-on-primary text-xs font-bold uppercase tracking-widest rounded">Established 2012</div>
+                  <div className="inline-block px-4 py-1.5 bg-primary-container text-on-primary text-xs font-bold uppercase tracking-widest rounded">Established 2022</div>
                 </div>
                 <h2 className="text-primary font-headline text-4xl md:text-5xl font-black tracking-tight leading-[1.1]">
                   Securing the Nation's <br />Corporate Frontiers
                 </h2>
                 <div className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
-                  <p>Dhaal Security Services Pvt. Ltd. is a premier security agency providing verified and reliable security services across PAN India. We deliver superior safety, risk management, and comprehensive manpower solutions to diverse sectors including IT, Government, and Industrial hubs.</p>
-                  <p>Our journey began with a vision to redefine protection standards. Today, we operate with tactical precision, absolute integrity, and a national presence that ensures we can deploy elite personnel wherever your assets are most vulnerable.</p>
+                  <p>Dhaal Security Services Pvt. Ltd. is a premier PSARA-licensed agency providing verified and reliable security services across PAN India. With our central command in Patna and regional hubs in Bhagalpur and Jamshedpur, we deliver superior safety and risk management solutions.</p>
+                  <p>Our journey began in 2022 with a vision to redefine protection standards through rigorous Police Verification and SOP-driven discipline. Today, we operate with tactical precision and absolute integrity nationwide.</p>
                 </div>
               </div>
 
@@ -90,8 +90,8 @@ const About: React.FC = () => {
                     whileHover={{ y: -5 }}
                     className="bg-primary p-8 text-white rounded-2xl shadow-xl mt-4"
                   >
-                    <div className="text-secondary-container font-headline text-4xl font-black mb-1">2015</div>
-                    <div className="text-white/60 font-bold uppercase tracking-widest text-[10px]">100+ Clients</div>
+                    <div className="text-secondary-container font-headline text-4xl font-black mb-1">50+</div>
+                    <div className="text-white/60 font-bold uppercase tracking-widest text-[10px]">Corporate Clients</div>
                   </motion.div>
                 </div>
                 <div className="space-y-4 pt-8">
@@ -99,15 +99,15 @@ const About: React.FC = () => {
                     whileHover={{ y: -5 }}
                     className="bg-primary p-8 text-white rounded-2xl shadow-xl"
                   >
-                    <div className="text-secondary-container font-headline text-4xl font-black mb-1">2018</div>
-                    <div className="text-white/60 font-bold uppercase tracking-widest text-[10px]">PAN India</div>
+                    <div className="text-secondary-container font-headline text-4xl font-black mb-1">2025</div>
+                    <div className="text-white/60 font-bold uppercase tracking-widest text-[10px]">PAN India Expansion</div>
                   </motion.div>
                   <motion.div 
                     whileHover={{ y: -5 }}
                     className="bg-white p-8 rounded-2xl shadow-[0_30px_60px_rgba(0,0,60,0.04)] border-b-4 border-secondary-container mt-4"
                   >
-                    <div className="text-primary font-headline text-4xl font-black mb-1">2024</div>
-                    <div className="text-on-surface-variant font-bold uppercase tracking-widest text-[10px]">15K Personnel</div>
+                    <div className="text-primary font-headline text-4xl font-black mb-1">2+</div>
+                    <div className="text-on-surface-variant font-bold uppercase tracking-widest text-[10px]">Years of Excellence</div>
                   </motion.div>
                 </div>
               </div>
@@ -124,17 +124,17 @@ const About: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="w-full md:w-1/3 aspect-[4/5] bg-primary relative rounded-2xl overflow-hidden shadow-2xl"
+              className="w-full md:w-[500px] aspect-[4/5] bg-primary relative rounded-2xl overflow-hidden shadow-2xl group"
             >
               <img 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBab6is_uQkLONDfL61U9jPxLbVNCOWdmlgLgnWjNWUAysD-LI_Y7tMS3_31mdnI1QyDbswqKPIbyldoq4LdJHSbrzRXCsDzd3JBg4CjzMvUpIx8M8887_IvSDa58Znlv61V74iAzOrK5Ua4WbUrpcSXEWg3Ar08jMY99mXDd1DZOf2ap8sGuG3PveIGifgwobSlgulqoCbAZTH6wqSeH8E-bj2peZiepqknWeTfX0E8QE7_IPb75Smmy6ZNCxgIpySjeAMdFhTcEBx" 
-                alt="MD Photo" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                src="director.png" 
+                alt="Founding Director Niraj V. Tiwari" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 border-[16px] border-white/5 pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary to-transparent">
-                <div className="font-headline text-xl font-bold text-white">Mr. Niraj V. Tiwari</div>
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-primary/80 to-transparent">
+                <div className="font-headline text-2xl font-bold text-white">Mr. Niraj V. Tiwari</div>
                 <div className="text-secondary-container text-xs font-bold uppercase tracking-[0.2em] mt-1">Founding Director</div>
               </div>
             </motion.div>
@@ -152,7 +152,7 @@ const About: React.FC = () => {
               <div className="relative">
                 <span className="absolute -top-10 -left-6 text-9xl text-primary/5 font-serif pointer-events-none">"</span>
                 <blockquote className="text-on-surface-variant text-xl italic font-medium leading-relaxed font-body relative z-10">
-                  When we established DSS, my singular objective was to build a security firm that acts as the backbone of national progress. We don’t just deploy guards; we architect peace of mind. Every client we serve, from multinational corporations to local enterprises, receives our absolute commitment to vigilance, integrity, and tactical excellence.
+                  When I established Dhaal Security in 2022, my singular objective was to build a firm that acts as the backbone of national safety. We don’t just deploy guards; we architect peace of mind through rigorous police verification and SOP-driven discipline. Every client, from multinational corporations to local enterprises, receives our absolute commitment to accountability.
                 </blockquote>
               </div>
               <div className="flex gap-16 border-t border-outline-variant/30 pt-10">

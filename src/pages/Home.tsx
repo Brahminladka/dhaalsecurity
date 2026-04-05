@@ -137,8 +137,8 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                 <div className="inline-block px-4 py-1.5 bg-primary-container text-on-primary text-xs font-bold uppercase tracking-widest rounded">Welcome to DSS Group</div>
               </div>
               <div className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
-                <p>Dhaal Security Services Pvt. Ltd. is a premier security agency providing verified and reliable security services across PAN India. We deliver superior safety, risk management, and comprehensive manpower solutions to diverse sectors.</p>
-                <p>Established with a vision to redefine protection standards, we operate with tactical precision and absolute integrity. Our national presence ensures that we can deploy elite personnel wherever your assets need protection.</p>
+                <p>Dhaal Security Services Pvt. Ltd. is a PSARA-licensed premier security agency providing verified and reliable security services across PAN India. With our central command in Patna, we deliver superior safety, risk management, and comprehensive manpower solutions to diverse sectors.</p>
+                <p>Established in 2012 with a vision to redefine protection standards, we operate with tactical precision and absolute integrity. Our national presence ensures that we can deploy elite, police-verified personnel wherever your assets need protection.</p>
               </div>
               
               <div className="grid grid-cols-2 gap-6 pt-4">
@@ -176,15 +176,15 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                 whileHover={{ y: -5 }}
                 className="bg-primary p-8 text-white mt-8"
               >
-                <div className="text-secondary-container font-headline text-3xl font-black mb-2">2015</div>
-                <div className="text-white/80 font-medium uppercase tracking-wider text-xs">100+ Clients</div>
+                <div className="text-secondary-container font-headline text-3xl font-black mb-2">50+</div>
+                <div className="text-white/80 font-medium uppercase tracking-wider text-xs">Corporate Clients</div>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -5 }}
                 className="bg-primary p-8 text-white"
               >
-                <div className="text-secondary-container font-headline text-3xl font-black mb-2">2018</div>
-                <div className="text-white/80 font-medium uppercase tracking-wider text-xs">Pan-India Expansion</div>
+                <div className="text-secondary-container font-headline text-3xl font-black mb-2">2025</div>
+                <div className="text-white/80 font-medium uppercase tracking-wider text-xs">PAN India Expansion</div>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -5 }}
@@ -228,11 +228,11 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
               <div className="relative grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-2xl">
-                    <div className="text-secondary-container text-4xl font-black mb-2">12+</div>
+                    <div className="text-secondary-container text-4xl font-black mb-2">2+</div>
                     <div className="text-white/60 text-xs uppercase tracking-widest font-bold">Years of Excellence</div>
                   </div>
                   <div className="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-2xl">
-                    <div className="text-secondary-container text-4xl font-black mb-2">100+</div>
+                    <div className="text-secondary-container text-4xl font-black mb-2">50+</div>
                     <div className="text-white/60 text-xs uppercase tracking-widest font-bold">Corporate Clients</div>
                   </div>
                 </div>
@@ -256,14 +256,14 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
       <section className="py-32 bg-surface-container-lowest">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="w-64 h-64 md:w-80 md:h-80 flex-shrink-0 bg-primary-container overflow-hidden rounded-lg shadow-2xl relative">
+            <div className="w-full md:w-[500px] aspect-[4/5] flex-shrink-0 bg-primary-container overflow-hidden rounded-2xl shadow-2xl relative group">
               <img 
-                alt="Professional portrait of the Director" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBab6is_uQkLONDfL61U9jPxLbVNCOWdmlgLgnWjNWUAysD-LI_Y7tMS3_31mdnI1QyDbswqKPIbyldoq4LdJHSbrzRXCsDzd3JBg4CjzMvUpIx8M8887_IvSDa58Znlv61V74iAzOrK5Ua4WbUrpcSXEWg3Ar08jMY99mXDd1DZOf2ap8sGuG3PveIGifgwobSlgulqoCbAZTH6wqSeH8E-bj2peZiepqknWeTfX0E8QE7_IPb75Smmy6ZNCxgIpySjeAMdFhTcEBx"
+                alt="Founding Director Niraj V. Tiwari" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                src="director.png"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 border-[12px] border-secondary-container/20 pointer-events-none"></div>
+              <div className="absolute inset-0 border-[16px] border-white/5 pointer-events-none"></div>
             </div>
             <div className="space-y-8">
               <span className="text-secondary-container text-6xl opacity-30 font-serif">"</span>
@@ -272,7 +272,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
               </blockquote>
               <div>
                 <div className="font-headline font-extrabold text-xl text-primary">Mr. Niraj V. Tiwari</div>
-                <div className="text-on-surface-variant uppercase tracking-widest text-xs font-bold mt-1">Managing Director & CEO</div>
+                <div className="text-on-surface-variant uppercase tracking-widest text-xs font-bold mt-1">Founding Director</div>
               </div>
             </div>
           </div>
