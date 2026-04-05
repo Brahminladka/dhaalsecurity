@@ -7,7 +7,7 @@ const Gallery: React.FC = () => {
   const [isSharing, setIsSharing] = React.useState(false);
   const [activeCategory, setActiveCategory] = React.useState("All");
 
-  const categories = ["All", "Corporate Security", "Event Security", "Facility Management", "Our Personnel", "Intelligence", "Strategic Protection", "Logo"];
+  const categories = ["All", "Corporate Security", "Event Security", "Facility Management", "Our Personnel", "Intelligence", "Strategic Protection"];
 
   const galleryItems = [
     {
@@ -15,7 +15,7 @@ const Gallery: React.FC = () => {
       category: "Our Personnel",
       title: "Executive Protection",
       description: "Elite personal security detail.",
-      image: "/gallery/gallery_01.jpg",
+      image: "gallery/gallery_01.jpg",
       size: "large"
     },
     {
@@ -23,7 +23,7 @@ const Gallery: React.FC = () => {
       category: "Corporate Security",
       title: "Standardized Entry Control",
       description: "Precision-led security protocols at Tier-1 commercial headquarters.",
-      image: "/gallery/gallery_02.jpeg",
+      image: "gallery/gallery_02.jpeg",
       size: "tall"
     },
     {
@@ -31,7 +31,7 @@ const Gallery: React.FC = () => {
       category: "Event Security",
       title: "Arena Management",
       description: "Crowd control and perimeter management for high-profile events.",
-      image: "/gallery/gallery_03.jpeg",
+      image: "gallery/gallery_03.jpeg",
       size: "square"
     },
     {
@@ -39,7 +39,7 @@ const Gallery: React.FC = () => {
       category: "Facility Management",
       title: "Technical Resilience",
       description: "Integrated maintenance and technical oversight for industrial facilities.",
-      image: "/gallery/gallery_04.jpeg",
+      image: "gallery/gallery_04.jpeg",
       size: "square"
     },
     {
@@ -47,7 +47,7 @@ const Gallery: React.FC = () => {
       category: "Intelligence",
       title: "Strategic Asset",
       description: "DSS Operational deployment.",
-      image: "/gallery/gallery_05.jpeg",
+      image: "gallery/gallery_05.jpeg",
       size: "large"
     },
     {
@@ -55,7 +55,7 @@ const Gallery: React.FC = () => {
       category: "Strategic Protection",
       title: "Facility Deployment",
       description: "Day-time operations and security.",
-      image: "/gallery/gallery_06.jpeg",
+      image: "gallery/gallery_06.jpeg",
       size: "square"
     },
     {
@@ -63,7 +63,7 @@ const Gallery: React.FC = () => {
       category: "Our Personnel",
       title: "Guard Briefing",
       description: "Daily briefing and strategy alignment.",
-      image: "/gallery/gallery_07.jpeg",
+      image: "gallery/gallery_07.jpeg",
       size: "large"
     },
     {
@@ -71,7 +71,7 @@ const Gallery: React.FC = () => {
       category: "Event Security",
       title: "VIP Escort",
       description: "Ensuring secure transit for VIP assets.",
-      image: "/gallery/gallery_08.jpeg",
+      image: "gallery/gallery_08.jpeg",
       size: "tall"
     },
     {
@@ -79,17 +79,9 @@ const Gallery: React.FC = () => {
       category: "Facility Management",
       title: "Safety Drills",
       description: "Preparedness protocols in motion.",
-      image: "/gallery/gallery_09.jpeg",
+      image: "gallery/gallery_09.jpeg",
       size: "square"
     },
-    {
-      id: 10,
-      category: "Logo",
-      title: "DSS Core Identity",
-      description: "Our symbol of trust.",
-      image: "/dss-logo.png",
-      size: "square"
-    }
   ];
 
   const filteredItems = activeCategory === "All" 
@@ -169,7 +161,7 @@ const Gallery: React.FC = () => {
         <div className="absolute inset-0 z-0 opacity-20">
           <img 
             className="w-full h-full object-cover" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKi_mdBhOs7-0n9I2-RwnNPPvDoPkbqdBDs80HEz8CVcNAK4yfGdwl2Phynp0CMjWe87xJP4oT7Xl2qXh5erVx09kJPiW7WKRKVgwQ_CCwaKL4WW-0Cg8lH_jAHs4w7Gt7DhUYSVkXyt4-7HAcigU68SN7XHPQwmQ5dS91EZHAg3Zv73dQhMy95BpYbGWjsp6umFAnUrls-L2wGOR8a92HaUo458SUzxf9YeM3xOaQm8OX5G5Xo9iv8i2Zxv4XtpqJqr3XPBr2lxAs"
+            src="gallery/gallery_02.jpeg"
             referrerPolicy="no-referrer"
           />
         </div>

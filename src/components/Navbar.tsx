@@ -25,7 +25,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           className="text-xl font-bold tracking-tighter text-primary font-headline uppercase cursor-pointer flex items-center gap-2"
           onClick={() => setCurrentPage('home')}
         >
-          <img src="/dss-logo.png" alt="DSS Logo" className="w-10 h-10 object-contain" />
+          <img src="dss-logo.png" alt="DSS Logo" className="w-10 h-10 object-contain" />
           DSS
         </div>
         

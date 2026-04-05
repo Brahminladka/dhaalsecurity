@@ -354,17 +354,15 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Map Section */}
-      <section className="h-[400px] bg-surface-container-high relative overflow-hidden">
+      <section className="h-[450px] bg-surface-container-high relative overflow-hidden z-10">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14393.385412496884!2d85.08051759999999!3d25.5934006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed581a00a18413%3A0xf6a7fb2a149b5a8e!2sAnisabad%2C%20Patna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-          width="100%" 
-          height="100%" 
+          className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
           style={{ border: 0 }} 
           allowFullScreen={false} 
           loading="lazy" 
           referrerPolicy="no-referrer-when-downgrade"
           title="Dhaal Security Services Map Location"
-          className="absolute inset-0"
         />
       </section>
 

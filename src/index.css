@@ -63,13 +63,13 @@
 }
 
 .bg-hero-pattern {
-  background-image: linear-gradient(rgba(0, 0, 60, 0.8), rgba(0, 0, 60, 0.6)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuBrvvbgophuRsWG23zs-IZ_LZP5J9cC2rRU1psnG0KkaXnc9cKwl1Xrtw1QiwiQWgbJtactUqpUBK71r6a24tYdeUuCwcXDCl9ZB0ul9Iq58ViS_FAOZlcIK_t8TuZxXOEgGm2OHL66X2wjZV4RqBHVA3vfx6Q9U7XWIN7tImvBvMH7sHcQ2JPQ1v2WyJV4o03ofAnU9sqhdu94YuuuQRkyqE1bnaECU4mbZTKqOftNDdu5ILlCZK2KmtKSj4oZykKYh7xVUvnZKr9B);
+  background-image: linear-gradient(rgba(0, 0, 60, 0.8), rgba(0, 0, 0, 0.6)), url(gallery/gallery_02.jpeg);
   background-size: cover;
   background-position: center;
 }
 
 .bg-hero-pattern-2 {
-  background-image: linear-gradient(to right, rgba(0, 0, 60, 0.95) 30%, rgba(0, 0, 60, 0.6) 100%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuBP7jqpRtCvYsiGav0pdFLgI15vrBdp5LrsmOJJmhPqw3ml-hrEr2JNUuUuQSXmSVmgv0X6VkpuJjDbr22piftVk_MBtzdNVBDRknh_wPoJd5Zd5lxp3bJzviU5A5aJ75t-ueUoSgUcV_1HM3KHEdhskxp0ufY6mxeFQTuNZp2NejmLt8seUt9gfaqVFGchSECtjXsgMVfPPbAJpDnNw99rFsmQP086MzeYUSf_Zrh6ObcQ1O6cg_KmHhJ0OdZCWC0IdIuzhUR91o6r);
+  background-image: linear-gradient(to right, rgba(0, 0, 60, 0.95) 30%, rgba(0, 0, 0, 0.6) 100%), url(gallery/gallery_05.jpeg);
   background-size: cover;
   background-position: center;
 }

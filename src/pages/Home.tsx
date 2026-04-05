@@ -133,7 +133,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
               className="space-y-8"
             >
               <div className="flex items-center gap-4">
-                <img src="/dss-logo.png" alt="DSS Logo" className="w-16 h-16 object-contain" />
+                <img src="dss-logo.png" alt="DSS Logo" className="w-16 h-16 object-contain" />
                 <div className="inline-block px-4 py-1.5 bg-primary-container text-on-primary text-xs font-bold uppercase tracking-widest rounded">Welcome to DSS Group</div>
               </div>
               <div className="space-y-4 text-on-surface-variant leading-relaxed text-lg">
