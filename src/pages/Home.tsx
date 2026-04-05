@@ -279,14 +279,49 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
         </div>
       </section>
 
-      {/* Trusted By Section */}
-      <section id="trusted" className="py-12 bg-surface-container-lowest border-y border-outline-variant/10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-            {['SUZUKI', 'GM MODULAR', 'MANKIND', 'ROYAL ENFIELD', 'TVS'].map((brand) => (
-              <span key={brand} className="text-2xl font-black tracking-tighter text-on-surface-variant font-headline italic">{brand}</span>
+      {/* Trusted By Section - Infinite Marquee */}
+      <section id="trusted" className="py-16 bg-surface-container-lowest border-y border-outline-variant/10 overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
+          <span className="text-primary/40 font-bold uppercase tracking-[0.3em] text-[10px] block">Global Brands & Corporate Partners</span>
+        </div>
+        <div className="relative">
+          <motion.div
+            initial={{ x: 0 }}
+            animate={{ x: "-50%" }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="flex gap-16 md:gap-32 items-center whitespace-nowrap px-8"
+          >
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex gap-16 md:gap-32 items-center">
+                {[
+                  { name: 'Suzuki', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Suzuki_logo_2.svg' },
+                  { name: 'GM Modular Pvt. Ltd.', logo: 'https://gmmodular.com/assets/img/logo.png' },
+                  { name: 'Mankind', logo: 'https://mankindpharma.com/assets/images/logo.png' },
+                  { name: 'Royal Enfield', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Royal_Enfield_logo.svg/320px-Royal_Enfield_logo.svg.png' },
+                  { name: 'TVS', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/TVS_Motor_Company_logo.svg' },
+                  { name: 'Manyavar', logo: 'https://www.manyavar.com/on/demandware.static/-/Sites-Manyavar-Library/default/dw11252033/StaticPages/manyavar-logo.svg' },
+                  { name: 'Tata', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg' },
+                  { name: 'Apoorv Air Control' },
+                  { name: 'Durga Electricals' },
+                  { name: 'GM Elektra' },
+                  { name: 'New Era High School' },
+                  { name: 'Hotel Jharokha' }
+                ].map((client, idx) => (
+                  <div key={idx} className="flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+                    {client.logo ? (
+                      <img src={client.logo} alt={client.name} className="h-10 md:h-12 w-auto object-contain brightness-0 group-hover:brightness-100 invert" />
+                    ) : (
+                      <span className="text-xl md:text-2xl font-black tracking-tighter text-on-surface-variant font-headline italic uppercase">{client.name}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -321,7 +356,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                     {
                       quote: "The discipline and professionalism of Dhaal's guards are unmatched. They've transformed our factory security protocols completely.",
                       author: "Rajesh Kumar",
-                      company: "Suzuki Motors",
+                      company: "Suzuki",
                       role: "Operations Manager",
                       rating: 5
                     },
@@ -333,31 +368,31 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                       rating: 5
                     },
                     {
-                      quote: "Meticulous attention to detail. From housekeeping to armed guarding, Dhaal provides a seamless manpower solution for our entire campus.",
+                      quote: "Meticulous attention to detail. From housekeeping to armed guarding, Dhaal provides a seamless manpower solution for our entire school.",
                       author: "Dr. Anjali Sharma",
                       company: "New Era High School",
                       role: "Principal",
                       rating: 5
                     },
                     {
-                      quote: "Reliable and efficient. Their facility management services have significantly improved our operational uptime.",
+                      quote: "Reliable and efficient. Their facility management services have significantly improved our operational uptime across GM units.",
                       author: "Amit Verma",
-                      company: "GM Modular Pvt. Ltd.",
+                      company: "GM Modular",
                       role: "Facility Director",
                       rating: 5
                     },
                     {
-                      quote: "Exceptional service quality. The security personnel are well-trained and highly disciplined.",
+                      quote: "Exceptional service quality. The security personnel at our store are well-trained and highly disciplined.",
                       author: "Vikash Gupta",
-                      company: "Mankind Pharma",
-                      role: "Regional Security Lead",
+                      company: "Manyavar",
+                      role: "Outlet Manager",
                       rating: 5
                     },
                     {
-                      quote: "Dhaal Security has been our trusted partner for years. Their commitment to safety is unparalleled.",
+                      quote: "Dhaal Security has been our trusted partner for years. Their commitment to safety at our plants is unparalleled.",
                       author: "Rahul Singh",
                       company: "Royal Enfield",
-                      role: "Store Manager",
+                      role: "Security Coordinator",
                       rating: 5
                     }
                   ].map((t, i) => (
