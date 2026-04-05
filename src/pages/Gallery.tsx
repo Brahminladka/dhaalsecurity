@@ -5,9 +5,6 @@ import { Maximize2, Download, Share2, X, ChevronLeft, ChevronRight, ShieldCheck 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = React.useState<any>(null);
   const [isSharing, setIsSharing] = React.useState(false);
-  const [activeCategory, setActiveCategory] = React.useState("All");
-
-  const categories = ["All", "Corporate Security", "Event Security", "Facility Management", "Our Personnel", "Intelligence", "Strategic Protection"];
 
   const galleryItems = [
     {
@@ -83,10 +80,6 @@ const Gallery: React.FC = () => {
       size: "square"
     },
   ];
-
-  const filteredItems = activeCategory === "All" 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === activeCategory);
 
   const handlePrev = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -178,30 +171,12 @@ const Gallery: React.FC = () => {
         </div>
       </header>
 
-      {/* Category Filter */}
-      <section className="py-8 px-6 md:px-12 max-w-7xl mx-auto overflow-x-auto">
-        <div className="flex gap-4 min-w-max pb-4">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-6 py-2 rounded-full font-bold text-sm transition-all duration-300 ${
-                activeCategory === cat 
-                  ? 'bg-secondary-container text-on-secondary-fixed shadow-lg' 
-                  : 'bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </section>
 
       {/* Gallery Grid */}
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item) => (
+            {galleryItems.map((item) => (
               <motion.div 
                 key={item.id}
                 layout
