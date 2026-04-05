@@ -74,9 +74,9 @@ const Careers: React.FC<CareersProps> = ({ setCurrentPage }) => {
       <section className="relative h-[40vh] flex items-center justify-center overflow-hidden bg-surface-container-highest">
         <div className="absolute inset-0 z-0 opacity-20">
           <img 
-            src="https://picsum.photos/seed/security-training/1920/1080" 
+            src="gallery/gallery_07.jpeg" 
             alt="Security Training" 
-            className="w-full h-full object-cover grayscale"
+            className="w-full h-full object-cover grayscale opacity-50"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface-container-highest"></div>

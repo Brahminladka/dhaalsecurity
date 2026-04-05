@@ -239,7 +239,7 @@ export const servicesData: ServiceData[] = [
     description: "Professional security solutions for hospitality venues, ensuring guest safety and asset protection with a focus on service excellence.",
     longDescription: "In the hospitality industry, security must be both effective and discreet. Our Hotel & Club Security teams are trained in guest relations, de-escalation, and emergency management. We provide a safe environment for guests and staff while protecting the property's assets and reputation. Our personnel are groomed for professional conduct and seamless integration with hotel operations.",
     icon: <Sparkles className="w-8 h-8" />,
-    image: "https://images.unsplash.com/photo-1541339907198-e08756ebafe3?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
     caseStudy: {
       title: "Luxury Hotel Guest Safety",
       description: "A premier hotel required a security team that could handle high-profile guests and large events without disrupting the guest experience.",
@@ -261,7 +261,7 @@ export const servicesData: ServiceData[] = [
     description: "Comprehensive security for shopping malls, retail outlets, and commercial complexes. We focus on loss prevention and customer safety.",
     longDescription: "Retail and commercial environments face unique challenges, from shoplifting to crowd management. Our security solutions are designed to mitigate these risks while ensuring a safe and pleasant shopping experience. We provide trained guards for floor patrolling, access control, and loss prevention, using a combination of human vigilance and advanced surveillance technology.",
     icon: <Users className="w-8 h-8" />,
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=800",
     caseStudy: {
       title: "Commercial Complex Access Control",
       description: "A busy commercial complex was struggling with unauthorized parking and vendor management.",
@@ -283,7 +283,7 @@ export const servicesData: ServiceData[] = [
     description: "Specialized services including fire drills, building evacuations, and emergency preparedness to ensure total safety.",
     longDescription: "Beyond manned guarding, we provide critical safety services to ensure your facility is prepared for any emergency. This includes conducting regular fire drills, designing building evacuation plans, and maintaining fire equipment. Our goal is to create a culture of safety and preparedness, ensuring that both personnel and assets are protected in the event of a crisis.",
     icon: <Shield className="w-8 h-8" />,
-    image: "https://images.unsplash.com/photo-1599833719482-603173090d3e?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=800",
     caseStudy: {
       title: "Corporate Office Fire Safety Audit",
       description: "A large corporate office needed to upgrade its emergency preparedness and fire safety protocols.",
