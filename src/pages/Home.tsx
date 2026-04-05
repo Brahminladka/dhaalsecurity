@@ -289,33 +289,33 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
             initial={{ x: 0 }}
             animate={{ x: "-50%" }}
             transition={{
-              duration: 25,
+              duration: 40,
               repeat: Infinity,
               ease: "linear"
             }}
-            className="flex gap-16 md:gap-32 items-center whitespace-nowrap px-8"
+            className="flex items-center whitespace-nowrap"
           >
             {[...Array(2)].map((_, i) => (
-              <div key={i} className="flex gap-16 md:gap-32 items-center">
+              <div key={i} className="flex items-center">
                 {[
-                  { name: 'Suzuki', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Suzuki_logo_2.svg' },
-                  { name: 'GM Modular Pvt. Ltd.', logo: 'https://gmmodular.com/assets/img/logo.png' },
-                  { name: 'Mankind', logo: 'https://mankindpharma.com/assets/images/logo.png' },
-                  { name: 'Royal Enfield', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Royal_Enfield_logo.svg/320px-Royal_Enfield_logo.svg.png' },
+                  { name: 'Suzuki', logo: 'https://www.citypng.com/public/uploads/preview/suzuki-black-logo-transparent-png-70175169477316889qlbzgncs.png' },
+                  { name: 'GM Modular', logo: 'https://gmmodular.ae/storage/app/media/main-symbols.png' },
+                  { name: 'Mankind', logo: 'https://toppng.com/uploads/preview/mankind-logo-download-mankind-pharma-logo-11562965541a6lqq6vjbv.png' },
+                  { name: 'Royal Enfield', logo: 'https://logos-world.net/wp-content/uploads/2022/12/Royal-Enfield-Logo.png' },
                   { name: 'TVS', logo: 'https://www.logo.wine/a/logo/TVS_Motor_Company/TVS_Motor_Company-Logo.wine.svg' },
-                  { name: 'Manyavar', logo: 'https://www.manyavar.com/on/demandware.static/-/Sites-Manyavar-Library/default/dw11252033/StaticPages/manyavar-logo.svg' },
+                  { name: 'Manyavar', logo: 'https://images.seeklogo.com/logo-png/30/1/manyavar-logo-png_seeklogo-304330.png' },
                   { name: 'Tata', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg' },
                   { name: 'Apoorv Air Control' },
                   { name: 'Durga Electricals' },
                   { name: 'GM Elektra' },
-                  { name: 'New Era High School' },
+                  { name: 'New Era School' },
                   { name: 'Hotel Jharokha' }
                 ].map((client, idx) => (
-                  <div key={idx} className="flex items-center gap-4 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 min-w-[120px] justify-center">
+                  <div key={idx} className="flex items-center justify-center w-[200px] shrink-0 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
                     {client.logo ? (
-                      <img src={client.logo} alt={client.name} className="h-10 md:h-12 w-auto object-contain" />
+                      <img src={client.logo} alt={client.name} className="h-8 md:h-10 w-auto max-w-[80%] object-contain" />
                     ) : (
-                      <span className="text-xl md:text-2xl font-black tracking-tighter text-on-surface-variant font-headline italic uppercase">{client.name}</span>
+                      <span className="text-lg md:text-xl font-black tracking-tighter text-on-surface-variant font-headline italic uppercase whitespace-nowrap">{client.name}</span>
                     )}
                   </div>
                 ))}
