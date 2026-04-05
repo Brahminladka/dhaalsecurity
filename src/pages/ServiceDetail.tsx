@@ -138,7 +138,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                 <img 
                   src={service.image} 
                   alt={service.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

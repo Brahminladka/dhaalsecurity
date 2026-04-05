@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Medal, User, Users, Building, Sparkles } from 'lucide-react';
+import { Shield, ShieldCheck, Medal, User, Users, Building, Sparkles } from 'lucide-react';
 
 export interface ServiceData {
   id: string;
@@ -114,8 +114,8 @@ export const servicesData: ServiceData[] = [
     title: "Lady Guards",
     description: "Specialized female security staff for corporate environments, retail, and events requiring gender-sensitive search and surveillance protocols.",
     longDescription: "Our Lady Guards are trained to provide security in environments where female presence is essential for comfort and protocol. From corporate offices to shopping malls and educational institutions, our female security personnel excel in surveillance, frisking, and maintaining order while ensuring a respectful environment. They are trained in self-defense and crisis management specifically for public-facing roles.",
-    icon: <User className="w-8 h-8" />,
-    image: "services/lady.png",
+    icon: <ShieldCheck className="w-8 h-8" />,
+    image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=800&auto=format&fit=crop",
     caseStudy: {
       title: "Retail Mall Crowd Management",
       description: "A major shopping mall needed a security team that could handle female-only zones and sensitive customer interactions.",
