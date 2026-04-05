@@ -132,16 +132,15 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-16">
-            {/* Image & Description */}
             <section>
-              <div className="relative aspect-video max-h-[70vh] rounded-3xl overflow-hidden shadow-2xl mb-10">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-10 bg-surface-container-high">
                 <img 
                   src={service.image} 
                   alt={service.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto max-h-[85vh] object-contain mx-auto"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
               </div>
               <div className="prose prose-lg max-w-none">
                 <h2 className="text-primary font-headline text-3xl font-bold mb-6">Service Overview</h2>
