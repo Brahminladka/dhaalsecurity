@@ -289,7 +289,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
             initial={{ x: 0 }}
             animate={{ x: "-50%" }}
             transition={{
-              duration: 30,
+              duration: 25,
               repeat: Infinity,
               ease: "linear"
             }}
@@ -302,7 +302,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                   { name: 'GM Modular Pvt. Ltd.', logo: 'https://gmmodular.com/assets/img/logo.png' },
                   { name: 'Mankind', logo: 'https://mankindpharma.com/assets/images/logo.png' },
                   { name: 'Royal Enfield', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e4/Royal_Enfield_logo.svg/320px-Royal_Enfield_logo.svg.png' },
-                  { name: 'TVS', logo: '/tvs-logo.png' },
+                  { name: 'TVS', logo: 'https://www.logo.wine/a/logo/TVS_Motor_Company/TVS_Motor_Company-Logo.wine.svg' },
                   { name: 'Manyavar', logo: 'https://www.manyavar.com/on/demandware.static/-/Sites-Manyavar-Library/default/dw11252033/StaticPages/manyavar-logo.svg' },
                   { name: 'Tata', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg' },
                   { name: 'Apoorv Air Control' },
@@ -311,9 +311,9 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                   { name: 'New Era High School' },
                   { name: 'Hotel Jharokha' }
                 ].map((client, idx) => (
-                  <div key={idx} className="flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 min-w-[140px] justify-center">
+                  <div key={idx} className="flex items-center gap-4 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 min-w-[120px] justify-center">
                     {client.logo ? (
-                      <img src={client.logo} alt={client.name} className="h-10 md:h-14 w-auto object-contain" />
+                      <img src={client.logo} alt={client.name} className="h-10 md:h-12 w-auto object-contain" />
                     ) : (
                       <span className="text-xl md:text-2xl font-black tracking-tighter text-on-surface-variant font-headline italic uppercase">{client.name}</span>
                     )}
@@ -344,7 +344,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
               initial={{ x: 0 }}
               animate={{ x: "-50%" }}
               transition={{
-                duration: 60,
+                duration: 50,
                 repeat: Infinity,
                 ease: "linear"
               }}
