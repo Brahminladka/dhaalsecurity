@@ -281,8 +281,8 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
 
       {/* Trusted By Section - Infinite Marquee */}
       <section id="trusted" className="py-16 bg-surface-container-lowest border-y border-outline-variant/10 overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-          <span className="text-primary/40 font-bold uppercase tracking-[0.3em] text-[10px] block">Global Brands & Corporate Partners</span>
+        <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
+          <span className="text-primary/60 font-black uppercase tracking-[0.5em] text-sm md:text-base block">Global Brands & Corporate Partners</span>
         </div>
         <div className="relative">
           <motion.div
@@ -311,7 +311,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                   { name: 'New Era School' },
                   { name: 'Hotel Jharokha' }
                 ].map((client, idx) => (
-                  <div key={idx} className="flex items-center justify-center w-[300px] h-24 shrink-0 px-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
+                  <div key={idx} className="flex items-center justify-center w-[300px] h-36 shrink-0 px-8 opacity-95 hover:opacity-100 transition-opacity duration-300">
                     {client.logo ? (
                       <img 
                         src={client.logo} 
