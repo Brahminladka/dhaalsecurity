@@ -304,81 +304,92 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
             <p className="text-white/60 mt-4 max-w-2xl mx-auto font-body">Verified feedback from our operational partners across the nation.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "The discipline and professionalism of Dhaal's guards are unmatched. They've transformed our factory security protocols completely.",
-                author: "Rajesh Kumar",
-                company: "Suzuki Motors",
-                role: "Operations Manager",
-                rating: 5
-              },
-              {
-                quote: "Their rapid response team is truly elite. We had a perimeter breach attempt that was neutralized within minutes thanks to their vigilance.",
-                author: "Sanjay Mehta",
-                company: "TVS Logistics",
-                role: "Security Head",
-                rating: 5
-              },
-              {
-                quote: "Meticulous attention to detail. From housekeeping to armed guarding, Dhaal provides a seamless manpower solution for our entire campus.",
-                author: "Dr. Anjali Sharma",
-                company: "New Era High School",
-                role: "Principal",
-                rating: 5
-              },
-              {
-                quote: "Reliable and efficient. Their facility management services have significantly improved our operational uptime.",
-                author: "Amit Verma",
-                company: "GM Modular Pvt. Ltd.",
-                role: "Facility Director",
-                rating: 5
-              },
-              {
-                quote: "Exceptional service quality. The security personnel are well-trained and highly disciplined.",
-                author: "Vikash Gupta",
-                company: "Mankind Pharma",
-                role: "Regional Security Lead",
-                rating: 5
-              },
-              {
-                quote: "Dhaal Security has been our trusted partner for years. Their commitment to safety is unparalleled.",
-                author: "Rahul Singh",
-                company: "Royal Enfield",
-                role: "Store Manager",
-                rating: 5
-              }
-            ].map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.2 }}
-                className="bg-white/5 backdrop-blur-sm p-10 border border-white/10 relative group hover:bg-white/10 transition-all duration-500 rounded-xl"
-              >
-                <div className="flex gap-1 mb-6">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-secondary-container text-secondary-container" />
+          <div className="relative overflow-hidden py-10 -mx-6">
+            <motion.div
+              initial={{ x: "-50%" }}
+              animate={{ x: "0%" }}
+              transition={{
+                duration: 40,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="flex gap-8 whitespace-nowrap px-6"
+            >
+              {[...Array(2)].map((_, pairIdx) => (
+                <div key={pairIdx} className="flex gap-8">
+                  {[
+                    {
+                      quote: "The discipline and professionalism of Dhaal's guards are unmatched. They've transformed our factory security protocols completely.",
+                      author: "Rajesh Kumar",
+                      company: "Suzuki Motors",
+                      role: "Operations Manager",
+                      rating: 5
+                    },
+                    {
+                      quote: "Their rapid response team is truly elite. We had a perimeter breach attempt that was neutralized within minutes thanks to their vigilance.",
+                      author: "Sanjay Mehta",
+                      company: "TVS Logistics",
+                      role: "Security Head",
+                      rating: 5
+                    },
+                    {
+                      quote: "Meticulous attention to detail. From housekeeping to armed guarding, Dhaal provides a seamless manpower solution for our entire campus.",
+                      author: "Dr. Anjali Sharma",
+                      company: "New Era High School",
+                      role: "Principal",
+                      rating: 5
+                    },
+                    {
+                      quote: "Reliable and efficient. Their facility management services have significantly improved our operational uptime.",
+                      author: "Amit Verma",
+                      company: "GM Modular Pvt. Ltd.",
+                      role: "Facility Director",
+                      rating: 5
+                    },
+                    {
+                      quote: "Exceptional service quality. The security personnel are well-trained and highly disciplined.",
+                      author: "Vikash Gupta",
+                      company: "Mankind Pharma",
+                      role: "Regional Security Lead",
+                      rating: 5
+                    },
+                    {
+                      quote: "Dhaal Security has been our trusted partner for years. Their commitment to safety is unparalleled.",
+                      author: "Rahul Singh",
+                      company: "Royal Enfield",
+                      role: "Store Manager",
+                      rating: 5
+                    }
+                  ].map((t, i) => (
+                    <div
+                      key={i}
+                      className="inline-block w-[400px] shrink-0 bg-white/5 backdrop-blur-sm p-10 border border-white/10 relative group hover:bg-white/10 transition-all duration-500 rounded-xl whitespace-normal"
+                    >
+                      <div className="flex gap-1 mb-6">
+                        {Array(t.rating).fill(null).map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-secondary-container text-secondary-container" />
+                        ))}
+                      </div>
+                      <Quote className="text-secondary-container w-8 h-8 mb-6 opacity-20 group-hover:opacity-100 transition-opacity" />
+                      <p className="text-white/90 text-lg font-body leading-relaxed mb-8 italic">
+                        "{t.quote}"
+                      </p>
+                      <div className="mt-auto flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary-container font-bold text-xl uppercase">
+                          {t.author[0]}
+                        </div>
+                        <div>
+                          <div className="text-secondary-container font-headline font-bold text-lg">{t.author}</div>
+                          <div className="text-white/60 text-[10px] uppercase tracking-widest mt-1 font-bold">
+                            {t.role}, {t.company}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   ))}
                 </div>
-                <Quote className="text-secondary-container w-8 h-8 mb-6 opacity-20 group-hover:opacity-100 transition-opacity" />
-                <p className="text-white/90 text-lg font-body leading-relaxed mb-8 italic">
-                  "{t.quote}"
-                </p>
-                <div className="mt-auto flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary-container font-bold text-xl">
-                    {t.author[0]}
-                  </div>
-                  <div>
-                    <div className="text-secondary-container font-headline font-bold text-lg">{t.author}</div>
-                    <div className="text-white/60 text-[10px] uppercase tracking-widest mt-1 font-bold">
-                      {t.role}, {t.company}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
