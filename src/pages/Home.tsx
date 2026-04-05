@@ -300,7 +300,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                 {[
                   { name: 'Suzuki', logo: 'https://www.citypng.com/public/uploads/preview/suzuki-black-logo-transparent-png-70175169477316889qlbzgncs.png' },
                   { name: 'GM Modular', logo: 'https://gmmodular.ae/storage/app/media/main-symbols.png' },
-                  { name: 'Mankind', logo: 'https://toppng.com/uploads/preview/mankind-logo-download-mankind-pharma-logo-11562965541a6lqq6vjbv.png' },
+                  { name: 'Mankind', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Mankind_Serving_Life.png' },
                   { name: 'Royal Enfield', logo: 'https://logos-world.net/wp-content/uploads/2022/12/Royal-Enfield-Logo.png' },
                   { name: 'TVS', logo: 'https://www.logo.wine/a/logo/TVS_Motor_Company/TVS_Motor_Company-Logo.wine.svg' },
                   { name: 'Manyavar', logo: 'https://images.seeklogo.com/logo-png/30/1/manyavar-logo-png_seeklogo-304330.png' },
@@ -311,7 +311,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                   { name: 'New Era School' },
                   { name: 'Hotel Jharokha' }
                 ].map((client, idx) => (
-                  <div key={idx} className="flex items-center justify-center w-[300px] h-24 shrink-0 px-8 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+                  <div key={idx} className="flex items-center justify-center w-[300px] h-24 shrink-0 px-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
                     {client.logo ? (
                       <img 
                         src={client.logo} 

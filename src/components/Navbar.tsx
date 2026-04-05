@@ -12,11 +12,34 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
   const navLinks = [
     { name: 'Home', id: 'home' },
     { name: 'Services', id: 'services' },
+    { name: 'About Us', id: 'about', isAnchor: true },
     { name: 'Gallery', id: 'gallery' },
     { name: 'Careers', id: 'careers' },
     { name: 'FAQ', id: 'faq' },
     { name: 'Contact', id: 'contact' },
   ];
+
+  const handleNavClick = (id: string, isAnchor?: boolean) => {
+    if (isAnchor && currentPage === 'home') {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(false);
+        return;
+      }
+    } else if (isAnchor) {
+      setCurrentPage('home');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
+      setIsOpen(false);
+      return;
+    }
+    
+    setCurrentPage(id);
+    setIsOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-primary/10 shadow-[0_20px_40px_rgba(0,0,60,0.06)]">
@@ -34,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           {navLinks.map((link) => (
             <button
               key={link.id}
-              onClick={() => setCurrentPage(link.id)}
+              onClick={() => handleNavClick(link.id, link.isAnchor)}
               className={`text-sm font-medium transition-all duration-300 ${
                 currentPage === link.id 
                   ? 'text-primary font-bold border-b-2 border-secondary-container pb-1' 
@@ -70,10 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           {navLinks.map((link) => (
             <button
               key={link.id}
-              onClick={() => {
-                setCurrentPage(link.id);
-                setIsOpen(false);
-              }}
+              onClick={() => handleNavClick(link.id, link.isAnchor)}
               className={`block w-full text-left px-4 py-2 text-sm font-medium rounded-lg ${
                 currentPage === link.id 
                   ? 'bg-primary-container text-on-primary' 
