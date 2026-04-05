@@ -289,11 +289,11 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
             initial={{ x: 0 }}
             animate={{ x: "-50%" }}
             transition={{
-              duration: 40,
+              duration: 60,
               repeat: Infinity,
               ease: "linear"
             }}
-            className="flex items-center whitespace-nowrap"
+            className="flex items-center"
           >
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center">
@@ -311,12 +311,23 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                   { name: 'New Era School' },
                   { name: 'Hotel Jharokha' }
                 ].map((client, idx) => (
-                  <div key={idx} className="flex items-center justify-center w-[200px] shrink-0 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+                  <div key={idx} className="flex items-center justify-center w-[300px] h-24 shrink-0 px-8 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
                     {client.logo ? (
-                      <img src={client.logo} alt={client.name} className="h-8 md:h-10 w-auto max-w-[80%] object-contain" />
-                    ) : (
-                      <span className="text-lg md:text-xl font-black tracking-tighter text-on-surface-variant font-headline italic uppercase whitespace-nowrap">{client.name}</span>
-                    )}
+                      <img 
+                        src={client.logo} 
+                        alt={client.name} 
+                        className="max-h-full max-w-full object-contain"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const span = target.parentElement?.querySelector('span');
+                          if (span) span.style.display = 'block';
+                        }}
+                      />
+                    ) : null}
+                    <span className={`text-lg md:text-xl font-black tracking-tighter text-on-surface-variant font-headline italic uppercase whitespace-nowrap ${client.logo ? 'hidden' : 'block'}`}>
+                      {client.name}
+                    </span>
                   </div>
                 ))}
               </div>
