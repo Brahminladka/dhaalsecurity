@@ -8,6 +8,7 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
 import Careers from './pages/Careers';
+import About from './pages/About';
 import ServiceDetail from './pages/ServiceDetail';
 import { servicesData } from './data/services';
 
@@ -46,6 +47,8 @@ const App: React.FC = () => {
         return <FAQ setCurrentPage={setCurrentPage} />;
       case 'careers':
         return <Careers setCurrentPage={setCurrentPage} />;
+      case 'about':
+        return <About />;
       default:
         return <Home />;
     }

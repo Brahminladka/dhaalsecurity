@@ -12,31 +12,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
   const navLinks = [
     { name: 'Home', id: 'home' },
     { name: 'Services', id: 'services' },
-    { name: 'About Us', id: 'about', isAnchor: true },
+    { name: 'About Us', id: 'about' },
     { name: 'Gallery', id: 'gallery' },
     { name: 'Careers', id: 'careers' },
     { name: 'FAQ', id: 'faq' },
     { name: 'Contact', id: 'contact' },
   ];
 
-  const handleNavClick = (id: string, isAnchor?: boolean) => {
-    if (isAnchor && currentPage === 'home') {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        setIsOpen(false);
-        return;
-      }
-    } else if (isAnchor) {
-      setCurrentPage('home');
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) element.scrollIntoView({ behavior: 'smooth' });
-      }, 200);
-      setIsOpen(false);
-      return;
-    }
-    
+  const handleNavClick = (id: string) => {
     setCurrentPage(id);
     setIsOpen(false);
   };
@@ -57,7 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           {navLinks.map((link) => (
             <button
               key={link.id}
-              onClick={() => handleNavClick(link.id, link.isAnchor)}
+              onClick={() => handleNavClick(link.id)}
               className={`text-sm font-medium transition-all duration-300 ${
                 currentPage === link.id 
                   ? 'text-primary font-bold border-b-2 border-secondary-container pb-1' 
@@ -93,7 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           {navLinks.map((link) => (
             <button
               key={link.id}
-              onClick={() => handleNavClick(link.id, link.isAnchor)}
+              onClick={() => handleNavClick(link.id)}
               className={`block w-full text-left px-4 py-2 text-sm font-medium rounded-lg ${
                 currentPage === link.id 
                   ? 'bg-primary-container text-on-primary' 
