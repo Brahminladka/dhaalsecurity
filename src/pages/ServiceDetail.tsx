@@ -199,8 +199,8 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
             {service.testimonials && service.testimonials.length > 0 && (
               <section className="py-16 border-t border-outline-variant/30">
                 <h2 className="text-primary font-headline text-3xl font-bold mb-10 text-center">Client Testimonials</h2>
-                <div className="relative max-w-md mx-auto px-4">
-                  <div className="overflow-hidden relative min-h-[250px] flex items-center">
+                <div className="relative max-w-2xl mx-auto px-4">
+                  <div className="overflow-hidden relative min-h-[350px] flex items-center">
                     <AnimatePresence mode="wait">
                       <motion.div 
                         key={currentTestimonial}
@@ -214,21 +214,21 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
                           if (info.offset.x < -50) nextTestimonial();
                           if (info.offset.x > 50) prevTestimonial();
                         }}
-                        className="w-full bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-outline-variant/10 relative cursor-grab active:cursor-grabbing"
+                        className="w-full bg-white p-10 md:p-14 rounded-3xl shadow-xl border border-outline-variant/10 relative cursor-grab active:cursor-grabbing"
                       >
-                        <div className="absolute -top-3 -left-3 w-10 h-10 bg-secondary-container text-on-secondary-fixed rounded-full flex items-center justify-center text-3xl font-serif shadow-lg">
+                        <div className="absolute -top-5 -left-5 w-14 h-14 bg-secondary-container text-on-secondary-fixed rounded-full flex items-center justify-center text-4xl font-serif shadow-lg">
                           "
                         </div>
-                        <p className="text-on-surface-variant italic mb-6 text-base md:text-lg leading-relaxed">
+                        <p className="text-on-surface-variant italic mb-10 text-xl md:text-2xl leading-relaxed">
                           {service.testimonials[currentTestimonial].quote}
                         </p>
                         <div className="flex items-center">
-                          <div className="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center mr-3 shadow-inner">
-                            <User className="w-5 h-5 text-on-primary" />
+                          <div className="w-14 h-14 bg-primary-container rounded-full flex items-center justify-center mr-5 shadow-inner">
+                            <User className="w-8 h-8 text-on-primary" />
                           </div>
                           <div>
-                            <h4 className="text-primary font-bold text-base">{service.testimonials[currentTestimonial].name}</h4>
-                            <p className="text-on-surface-variant text-[10px] font-bold uppercase tracking-wider">
+                            <h4 className="text-primary font-bold text-xl">{service.testimonials[currentTestimonial].name}</h4>
+                            <p className="text-on-surface-variant text-xs font-bold uppercase tracking-widest mt-1">
                               {service.testimonials[currentTestimonial].role}, {service.testimonials[currentTestimonial].company}
                             </p>
                           </div>
