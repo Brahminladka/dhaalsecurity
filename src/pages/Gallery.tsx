@@ -185,14 +185,10 @@ const Gallery: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 viewport={{ once: true }}
                 onClick={() => setSelectedImage(item)}
-                className={`relative group overflow-hidden bg-surface-container-high cursor-pointer rounded-xl ${
-                  item.size === 'large' ? 'md:col-span-8 md:row-span-2' : 
-                  item.size === 'tall' ? 'md:col-span-4 md:row-span-2' : 
-                  'md:col-span-4'
-                }`}
+                className="relative group overflow-hidden bg-surface-container-high cursor-pointer rounded-xl md:col-span-4 aspect-square flex items-center justify-center p-2"
               >
               <img 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0" 
+                className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105" 
                 src={item.image}
                 referrerPolicy="no-referrer"
               />
