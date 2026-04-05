@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from './Logo';
 import { Shield, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
@@ -23,10 +22,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-primary/10 shadow-[0_20px_40px_rgba(0,0,60,0.06)]">
       <div className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
         <div 
-          className="text-3xl font-black tracking-tighter text-primary font-headline uppercase cursor-pointer flex items-center gap-3"
+          className="text-4xl font-black tracking-tighter text-black font-headline uppercase cursor-pointer flex items-center gap-4 transition-transform hover:scale-105"
           onClick={() => setCurrentPage('home')}
         >
-          <Logo size={56} textColor="text-primary" />
+          <div className="relative">
+            <img src="dss-logo.png" alt="DSS Logo" className="w-16 h-16 object-contain drop-shadow-lg" />
+          </div>
           DSS
         </div>
         
