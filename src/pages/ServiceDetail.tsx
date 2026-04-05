@@ -200,35 +200,35 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ service, onBack }) => {
               <section className="py-16 border-t border-outline-variant/30">
                 <h2 className="text-primary font-headline text-3xl font-bold mb-10 text-center">Client Testimonials</h2>
                 <div className="relative max-w-2xl mx-auto px-4">
-                  <div className="overflow-hidden relative min-h-[350px] flex items-center">
+                  <div className="relative min-h-[300px] flex items-center">
                     <AnimatePresence mode="wait">
                       <motion.div 
                         key={currentTestimonial}
-                        initial={{ opacity: 0, x: 50 }}
+                        initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                         drag="x"
                         dragConstraints={{ left: 0, right: 0 }}
                         onDragEnd={(_, info) => {
                           if (info.offset.x < -50) nextTestimonial();
                           if (info.offset.x > 50) prevTestimonial();
                         }}
-                        className="w-full bg-white p-10 md:p-14 rounded-3xl shadow-xl border border-outline-variant/10 relative cursor-grab active:cursor-grabbing"
+                        className="w-full bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-outline-variant/20 relative cursor-grab active:cursor-grabbing"
                       >
-                        <div className="absolute -top-5 -left-5 w-14 h-14 bg-secondary-container text-on-secondary-fixed rounded-full flex items-center justify-center text-4xl font-serif shadow-lg">
+                        <div className="absolute top-0 left-0 w-12 h-12 bg-secondary-container text-on-secondary-fixed rounded-br-3xl flex items-center justify-center text-4xl font-serif shadow-sm">
                           "
                         </div>
-                        <p className="text-on-surface-variant italic mb-10 text-xl md:text-2xl leading-relaxed">
+                        <p className="text-on-surface-variant italic mb-8 text-xl leading-relaxed">
                           {service.testimonials[currentTestimonial].quote}
                         </p>
                         <div className="flex items-center">
-                          <div className="w-14 h-14 bg-primary-container rounded-full flex items-center justify-center mr-5 shadow-inner">
-                            <User className="w-8 h-8 text-on-primary" />
+                          <div className="w-14 h-14 bg-primary-container rounded-full flex items-center justify-center mr-4 shadow-inner">
+                            <User className="w-7 h-7 text-on-primary" />
                           </div>
                           <div>
-                            <h4 className="text-primary font-bold text-xl">{service.testimonials[currentTestimonial].name}</h4>
-                            <p className="text-on-surface-variant text-xs font-bold uppercase tracking-widest mt-1">
+                            <h4 className="text-primary font-bold text-lg">{service.testimonials[currentTestimonial].name}</h4>
+                            <p className="text-on-surface-variant text-sm font-medium">
                               {service.testimonials[currentTestimonial].role}, {service.testimonials[currentTestimonial].company}
                             </p>
                           </div>
