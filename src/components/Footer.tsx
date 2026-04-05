@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from './Logo';
 import { Shield, ShieldCheck, FileText, Eye, Globe, Lock, Users } from 'lucide-react';
 
 interface FooterProps {
@@ -11,7 +12,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto">
         <div className="space-y-6">
           <div className="text-3xl font-black text-white font-headline flex items-center gap-3">
-            <img src="dss-logo.png" alt="DSS Logo" className="w-12 h-12 object-contain mix-blend-multiply" />
+            <Logo size={48} textColor="text-secondary-container" />
             DSS
           </div>
           <p className="text-white/70 text-sm leading-relaxed">Securing India's future through discipline and absolute integrity. Providing elite protection services across PAN India.</p>

@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <img src="dss-logo.png" alt="DSS Logo" className="w-20 h-20 object-contain mx-auto mb-6 mix-blend-multiply" />
+            <img src="dss-logo.png" alt="DSS Logo" className="w-20 h-20 object-contain mx-auto mb-6" />
             <h1 className="text-white font-headline text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
               Command Headquarters
             </h1>

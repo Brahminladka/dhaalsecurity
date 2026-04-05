@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from './Logo';
 import { Shield, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
@@ -25,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           className="text-3xl font-black tracking-tighter text-primary font-headline uppercase cursor-pointer flex items-center gap-3"
           onClick={() => setCurrentPage('home')}
         >
-          <img src="dss-logo.png" alt="DSS Logo" className="w-14 h-14 object-contain mix-blend-multiply" />
+          <Logo size={56} textColor="text-primary" />
           DSS
         </div>
         
