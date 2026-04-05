@@ -12,49 +12,81 @@ const Gallery: React.FC = () => {
   const galleryItems = [
     {
       id: 1,
-      category: "Corporate Security",
-      title: "Standardized Entry Control",
-      description: "Precision-led security protocols at Tier-1 commercial headquarters.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBqUHJ5Qd3YoDM58zF4VOWI0kCx08cocsEsw7XtTJP5AYGMxegnlsQAu9EV0BWc8c_OERWAICILCWShzGHomZ-MsSAQkj7-EYWbnsbqtq5ACO_yZQcHB9gM1xU14xcWs09BX7JITpUDJ4S9gbNsYvNxTd40M0ACQRdiFFU5zB-oQxwGK2zlSy-dllmH8d54coEv0EbpjbfvSYHCsPwQf1LPdshBqwwSvWQQDIlW60pxJ02TcSaqMtVFIsS5OiSi8V5A-dkg10VaafzN",
+      category: "Our Personnel",
+      title: "Executive Protection",
+      description: "Elite personal security detail.",
+      image: "/gallery/gallery_01.jpg",
       size: "large"
     },
     {
       id: 2,
-      category: "Event Security",
-      title: "Arena Management",
-      description: "Crowd control and perimeter management for high-profile events.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCUgP-Y0d-ezkaxjiZumDAoRusPB9XT9NdUWIeuVg-90I6gbyjxFd08T4Mw054VOI8yuJHZZ-9D-cjv2wn2_DB70ZUpM0E3dfiVbgWWXKkjQhRl1nS8snqdp3ExvdgDLeT3btFhqxxlmL6gOAz1H5rzIX05cic-KycPKGjV9UJZMUxeT50YRV80nDvvX1q-1QZmMyE4-NoNTaDqYLbpFMFEI0nWPBbXAXGF9bzv3T8bo-vGI5Lg5H2tCCHyMXwBV2Mpbz2oXS3bMwjg",
+      category: "Corporate Security",
+      title: "Standardized Entry Control",
+      description: "Precision-led security protocols at Tier-1 commercial headquarters.",
+      image: "/gallery/gallery_02.jpeg",
       size: "tall"
     },
     {
       id: 3,
-      category: "Facility Management",
-      title: "Technical Resilience",
-      description: "Integrated maintenance and technical oversight for industrial facilities.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDRa3l1vB7jQYt-WwXMRq9n-dDhzxYeqwWOJP3_-oDcvC5vqQJRpC6-hHOWQ-dzTDbWHx7z-onMj5Xr0kfrh6QqoOmA9FKVCa5tu2W_-dzcmWjTd-9zhhm8EhNB9AgQBwW0lSJEcEzp1umQDZNf4vLBREhAE8UsLiw-dyVlmGNOcP7YYe1MvFdKHRYlJKQM4Nle2vFPFmrwvZEosX_qd_nzqzZ5rp5_KCjXuowHDd-Zr3eUciLM2w3SGjUkXeEQJx-UvxXap1D7GwEW",
+      category: "Event Security",
+      title: "Arena Management",
+      description: "Crowd control and perimeter management for high-profile events.",
+      image: "/gallery/gallery_03.jpeg",
       size: "square"
     },
     {
       id: 4,
-      category: "Our Personnel",
-      title: "Elite Task Force",
-      description: "A diverse group of disciplined security professionals in formation.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD5GBZtrV7elxye83Ondu-iFQf-BmUmskQwiaCVWJ2cYHtWm8Ab_IoebjGmC5FMVT0GndprhRAWazksH_Gp2C_m-EBzU-2LWvmxZDVarHRLqSACxBk-c2nMPowRemzOOdT401b8R0KsGTFxEe1qdtswjsG3ObC4j4GUqeodH56TO6RGTxJboajyMXZyLJAj6EGpas4UP2SlWCnOLHt_skaJaJdGCW7DX4aOuZcx8JGeRcL7KNv_wScgQzuw23OvhYrw5sO3bVUs9D2a",
+      category: "Facility Management",
+      title: "Technical Resilience",
+      description: "Integrated maintenance and technical oversight for industrial facilities.",
+      image: "/gallery/gallery_04.jpeg",
       size: "square"
     },
     {
       id: 5,
       category: "Intelligence",
-      title: "24/7 Command Center",
-      description: "Real-time remote monitoring and surveillance from our central hub.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBRCFrKzMwM2QbzJUFksygfzkb90E8U7MWX57qB3arYSH7UJ66yOAIEelofQ-2ONd_UzBYVNUeuq0CcF31a2G-Gqwj02SCwT5UUDxtKBF_QvsOmXBkerZw7diEFNfuMYb8lBFUQtlBMnHJFcufzgZuKkcrzlIybeiB6o215bt-48YahpjppatiXbbmKQxOZXF-XqA2RkxfNHnFfr54DVGrv92DRbXL4go2Iunf6zuuTrbO6k4pNubRbIwgJrl6VyPR3N7QuYecgGB59",
+      title: "Strategic Asset",
+      description: "DSS Operational deployment.",
+      image: "/gallery/gallery_05.jpeg",
       size: "large"
     },
     {
       id: 6,
+      category: "Strategic Protection",
+      title: "Facility Deployment",
+      description: "Day-time operations and security.",
+      image: "/gallery/gallery_06.jpeg",
+      size: "square"
+    },
+    {
+      id: 7,
+      category: "Our Personnel",
+      title: "Guard Briefing",
+      description: "Daily briefing and strategy alignment.",
+      image: "/gallery/gallery_07.jpeg",
+      size: "large"
+    },
+    {
+      id: 8,
+      category: "Event Security",
+      title: "VIP Escort",
+      description: "Ensuring secure transit for VIP assets.",
+      image: "/gallery/gallery_08.jpeg",
+      size: "tall"
+    },
+    {
+      id: 9,
+      category: "Facility Management",
+      title: "Safety Drills",
+      description: "Preparedness protocols in motion.",
+      image: "/gallery/gallery_09.jpeg",
+      size: "square"
+    },
+    {
+      id: 10,
       category: "Logo",
-      title: "DSS Operational Asset",
-      description: "Our core identity representing elite security and facility management.",
+      title: "DSS Core Identity",
+      description: "Our symbol of trust.",
       image: "/dss-logo.png",
       size: "square"
     }

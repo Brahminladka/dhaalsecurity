@@ -18,7 +18,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
           <div className="space-y-2 pt-2">
             <p className="text-white/50 text-xs font-bold uppercase tracking-widest">Contact Us</p>
             <p className="text-white text-sm">9450783665</p>
-            <p className="text-white text-sm">info@dhaalsecurity.com</p>
+            <p className="text-white text-sm">dssplpatna@gmail.com</p>
           </div>
         </div>
         <div>
@@ -34,7 +34,12 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             </li>
             <li>
               <button 
-                onClick={() => setCurrentPage('home')} // Placeholder for About Us
+                onClick={() => {
+                  setCurrentPage('home');
+                  setTimeout(() => {
+                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
                 className="text-white/70 hover:text-white transition-colors hover:underline decoration-secondary-container underline-offset-4 text-sm text-left"
               >
                 About Us
@@ -50,7 +55,12 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             </li>
             <li>
               <button 
-                onClick={() => setCurrentPage('gallery')} // Placeholder for Case Studies
+                onClick={() => {
+                  setCurrentPage('home');
+                  setTimeout(() => {
+                    document.getElementById('trusted')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
                 className="text-white/70 hover:text-white transition-colors hover:underline decoration-secondary-container underline-offset-4 text-sm text-left"
               >
                 Case Studies
@@ -84,7 +94,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
         </div>
       </div>
       <div className="mt-16 pt-8 border-t border-white/5 px-8 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-white/40 text-xs">© 2024 DSS. All rights reserved.</p>
+        <p className="text-white/40 text-xs">© 2025 DSS. All rights reserved.</p>
         <div className="flex gap-6">
           <ShieldCheck className="w-5 h-5 text-white/40 hover:text-secondary-container transition-colors cursor-pointer" />
           <FileText className="w-5 h-5 text-white/40 hover:text-secondary-container transition-colors cursor-pointer" />

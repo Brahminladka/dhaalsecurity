@@ -148,7 +148,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-headline font-bold text-primary text-lg">Operational Inquiries</h4>
-                    <p className="text-on-surface-variant font-medium">info@dhaalsecurity.com</p>
+                    <p className="text-on-surface-variant font-medium">dssplpatna@gmail.com</p>
                     <p className="text-on-surface-variant/70 text-sm">Response within 24 hours</p>
                   </div>
                 </div>
@@ -162,8 +162,21 @@ const Contact: React.FC = () => {
                       <h4 className="font-headline font-bold text-primary text-lg">Corporate Head Office</h4>
                       <p className="text-on-surface-variant font-medium">Near Surya Mandir, 1st Floor,</p>
                       <p className="text-on-surface-variant font-medium">Phulwari Khagaul Road, Anisabad,</p>
-                      <p className="text-on-surface-variant/70 text-sm">Corporate Head Office, India</p>
+                      <p className="text-on-surface-variant font-medium">Patna, Bihar – 800002</p>
                       <p className="text-secondary-container font-bold text-xs uppercase tracking-widest mt-2">Serving PAN India</p>
+                    </div>
+
+                    <div className="pt-4 border-t border-outline-variant/30">
+                      <h4 className="font-headline font-bold text-primary mb-1">Bhagalpur Branch</h4>
+                      <p className="text-on-surface-variant text-sm">Ward No. 6, Prem Nagar, Sabour</p>
+                      <p className="text-on-surface-variant text-sm">Bhagalpur, Bihar – 813210</p>
+                      <p className="text-on-surface-variant text-sm font-bold mt-1">Cell: 8252514111</p>
+                    </div>
+
+                    <div className="pt-4 border-t border-outline-variant/30">
+                      <h4 className="font-headline font-bold text-primary mb-1">Jamshedpur Branch</h4>
+                      <p className="text-on-surface-variant text-sm">Road No. 4, Adityapur-2</p>
+                      <p className="text-on-surface-variant text-sm">Saraikela-Kharsawan (Jamshedpur) – 831013</p>
                     </div>
                   </div>
                 </div>
@@ -340,16 +353,19 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      {/* Map Section Placeholder */}
+      {/* Map Section */}
       <section className="h-[400px] bg-surface-container-high relative overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center space-y-4">
-            <MapPin className="w-12 h-12 text-primary mx-auto opacity-20" />
-            <p className="text-on-surface-variant font-headline font-bold uppercase tracking-widest opacity-40">Interactive Map Deployment</p>
-          </div>
-        </div>
-        {/* In a real app, you'd embed a Google Map here */}
-        <div className="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14393.385412496884!2d85.08051759999999!3d25.5934006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed581a00a18413%3A0xf6a7fb2a149b5a8e!2sAnisabad%2C%20Patna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }} 
+          allowFullScreen={false} 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Dhaal Security Services Map Location"
+          className="absolute inset-0"
+        />
       </section>
 
       {/* Confirmation Dialog */}

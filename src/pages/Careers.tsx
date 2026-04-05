@@ -2,7 +2,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Shield, Target, Award, Users, Search, ClipboardCheck, Dumbbell, UserCheck, GraduationCap, Briefcase, ChevronRight, Medal, CheckCircle2 } from 'lucide-react';
 
-const Careers: React.FC = () => {
+interface CareersProps {
+  setCurrentPage?: (page: string) => void;
+}
+
+const Careers: React.FC<CareersProps> = ({ setCurrentPage }) => {
   const standards = [
     {
       icon: <Shield className="w-8 h-8 text-primary" />,
@@ -204,13 +208,19 @@ const Careers: React.FC = () => {
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a 
-                    href="mailto:careers@dhaalsecurity.com" 
+                    href="mailto:dssplpatna@gmail.com" 
                     className="px-8 py-4 bg-on-primary text-primary font-bold rounded-xl hover:bg-on-primary/90 transition-colors flex items-center gap-2"
                   >
                     Send Resume
                     <Briefcase className="w-5 h-5" />
                   </a>
-                  <button className="px-8 py-4 border border-on-primary/30 text-on-primary font-bold rounded-xl hover:bg-on-primary/10 transition-colors">
+                  <button 
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      setCurrentPage?.('contact');
+                    }}
+                    className="px-8 py-4 border border-on-primary/30 text-on-primary font-bold rounded-xl hover:bg-on-primary/10 transition-colors"
+                  >
                     View Openings
                   </button>
                 </div>

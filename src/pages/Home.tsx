@@ -6,9 +6,10 @@ import { servicesData } from '../data/services';
 interface HomeProps {
   onServiceClick?: (serviceId: string) => void;
   onContactClick?: () => void;
+  setCurrentPage?: (page: string) => void;
 }
 
-const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
+const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentPage }) => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
@@ -33,7 +34,10 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               <button 
-                onClick={onContactClick}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  if (onContactClick) onContactClick();
+                }}
                 className="bg-secondary-container text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-white transition-all duration-300 active:scale-95 shadow-xl flex items-center gap-2"
               >
                 Get a Free Quote
@@ -68,7 +72,10 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
               <p className="text-on-surface-variant mt-4 text-lg font-body">Tactical protection solutions engineered for India's most critical environments.</p>
             </div>
             <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} // This is just a placeholder, App.tsx handles navigation
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setCurrentPage?.('services');
+              }}
               className="group flex items-center gap-2 text-primary font-bold hover:text-secondary-container transition-colors"
             >
               View All Services
@@ -162,7 +169,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
                 whileHover={{ y: -5 }}
                 className="bg-surface-container-lowest p-8 shadow-[0_20px_40px_rgba(0,0,60,0.04)] border-b-4 border-secondary-container"
               >
-                <div className="text-primary font-headline text-3xl font-black mb-2">2012</div>
+                <div className="text-primary font-headline text-3xl font-black mb-2">2022</div>
                 <div className="text-on-surface-variant font-medium uppercase tracking-wider text-xs">Founded</div>
               </motion.div>
               <motion.div 
@@ -225,7 +232,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
                     <div className="text-white/60 text-xs uppercase tracking-widest font-bold">Years of Excellence</div>
                   </div>
                   <div className="bg-white/5 backdrop-blur-md p-8 border border-white/10 rounded-2xl">
-                    <div className="text-secondary-container text-4xl font-black mb-2">500+</div>
+                    <div className="text-secondary-container text-4xl font-black mb-2">100+</div>
                     <div className="text-white/60 text-xs uppercase tracking-widest font-bold">Corporate Clients</div>
                   </div>
                 </div>
@@ -264,7 +271,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
                 At DSS, we don't just provide guards; we architect safety. Our commitment is to the peace of mind of every client we serve.
               </blockquote>
               <div>
-                <div className="font-headline font-extrabold text-xl text-primary">Vikram Singh Rathore</div>
+                <div className="font-headline font-extrabold text-xl text-primary">Mr. Niraj V. Tiwari</div>
                 <div className="text-on-surface-variant uppercase tracking-widest text-xs font-bold mt-1">Managing Director & CEO</div>
               </div>
             </div>
@@ -273,10 +280,10 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
       </section>
 
       {/* Trusted By Section */}
-      <section className="py-12 bg-surface-container-lowest border-y border-outline-variant/10">
+      <section id="trusted" className="py-12 bg-surface-container-lowest border-y border-outline-variant/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-            {['TATA', 'RELIANCE', 'ADANI', 'WIPRO', 'INFOSYS'].map((brand) => (
+            {['SUZUKI', 'GM MODULAR', 'MANKIND', 'ROYAL ENFIELD', 'TVS'].map((brand) => (
               <span key={brand} className="text-2xl font-black tracking-tighter text-on-surface-variant font-headline italic">{brand}</span>
             ))}
           </div>
@@ -388,11 +395,14 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick }) => {
           >
             <h2 className="text-primary font-headline text-4xl md:text-6xl font-black tracking-tight">Ready to Secure Your Assets?</h2>
             <p className="text-on-surface-variant text-xl max-w-2xl mx-auto font-body">
-              Join 500+ corporate partners who trust Dhaal Security Services for their national protection needs.
+              Join 100+ corporate partners who trust Dhaal Security Services for their national protection needs.
             </p>
             <div className="flex flex-wrap justify-center gap-6 pt-4">
               <button 
-                onClick={onContactClick}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  if (onContactClick) onContactClick();
+                }}
                 className="bg-primary text-white px-10 py-5 rounded-xl font-bold text-xl hover:brightness-110 transition-all shadow-2xl flex items-center gap-3 group"
               >
                 Get a Custom Proposal

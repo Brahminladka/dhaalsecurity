@@ -13,7 +13,11 @@ interface FAQCategory {
   items: FAQItem[];
 }
 
-const FAQ: React.FC = () => {
+interface FAQProps {
+  setCurrentPage?: (page: string) => void;
+}
+
+const FAQ: React.FC<FAQProps> = ({ setCurrentPage }) => {
   const [activeCategory, setActiveCategory] = useState(0);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -131,7 +135,13 @@ const FAQ: React.FC = () => {
                 <MessageSquare className="w-8 h-8 text-secondary-container mb-4" />
                 <h4 className="text-primary font-bold mb-2">Still have questions?</h4>
                 <p className="text-on-surface-variant text-sm mb-6">Our tactical team is ready to assist you with any specific requirements.</p>
-                <button className="w-full bg-primary text-white py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all">
+                <button 
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setCurrentPage?.('contact');
+                  }}
+                  className="w-full bg-primary text-white py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:brightness-110 transition-all"
+                >
                   Contact Support
                 </button>
               </div>
@@ -188,7 +198,13 @@ const FAQ: React.FC = () => {
                     <p className="text-on-surface-variant">Request a professional audit of your site's security requirements.</p>
                   </div>
                 </div>
-                <button className="bg-secondary-container text-on-secondary-fixed px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:brightness-105 transition-all shadow-lg whitespace-nowrap">
+                <button 
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setCurrentPage?.('contact');
+                  }}
+                  className="bg-secondary-container text-on-secondary-fixed px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:brightness-105 transition-all shadow-lg whitespace-nowrap"
+                >
                   Request Now
                 </button>
               </div>
