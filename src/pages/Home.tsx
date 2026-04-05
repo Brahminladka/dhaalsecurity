@@ -289,7 +289,7 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
             initial={{ x: 0 }}
             animate={{ x: "-50%" }}
             transition={{
-              duration: 30,
+              duration: 25,
               repeat: Infinity,
               ease: "linear"
             }}
@@ -311,9 +311,9 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
                   { name: 'New Era High School' },
                   { name: 'Hotel Jharokha' }
                 ].map((client, idx) => (
-                  <div key={idx} className="flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+                  <div key={idx} className="flex items-center gap-4 opacity-40 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 min-w-[120px] justify-center">
                     {client.logo ? (
-                      <img src={client.logo} alt={client.name} className="h-10 md:h-12 w-auto object-contain brightness-0 group-hover:brightness-100 invert" />
+                      <img src={client.logo} alt={client.name} className="h-10 md:h-12 w-auto object-contain" />
                     ) : (
                       <span className="text-xl md:text-2xl font-black tracking-tighter text-on-surface-variant font-headline italic uppercase">{client.name}</span>
                     )}
@@ -341,10 +341,10 @@ const Home: React.FC<HomeProps> = ({ onServiceClick, onContactClick, setCurrentP
 
           <div className="relative overflow-hidden py-10 -mx-6">
             <motion.div
-              initial={{ x: "-50%" }}
-              animate={{ x: "0%" }}
+              initial={{ x: 0 }}
+              animate={{ x: "-50%" }}
               transition={{
-                duration: 40,
+                duration: 50,
                 repeat: Infinity,
                 ease: "linear"
               }}
