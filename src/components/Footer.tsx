@@ -94,7 +94,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
         </div>
       </div>
       <div className="mt-16 pt-8 border-t border-white/5 px-8 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-white/40 text-xs">© 2025 DSS. All rights reserved.</p>
+        <p className="text-white/40 text-xs">© 2025-2027 DSS. All rights reserved.</p>
         <div className="flex gap-6">
           <ShieldCheck className="w-5 h-5 text-white/40 hover:text-secondary-container transition-colors cursor-pointer" />
           <FileText className="w-5 h-5 text-white/40 hover:text-secondary-container transition-colors cursor-pointer" />
